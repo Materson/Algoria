@@ -146,8 +146,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algoria.cpp" />
+    <ClCompile Include="Czlowiek.cpp" />
+    <ClCompile Include="Zwierze.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Organizm.h" />
     <ClInclude Include="Swiat.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -21,10 +21,19 @@
     <ClCompile Include="Algoria.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Zwierze.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Czlowiek.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Swiat.cpp">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Organizm.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
