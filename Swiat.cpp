@@ -8,7 +8,6 @@ class Swiat
 {
 private:
 	int height, width;
-protected:
 	Organizm ***map;
 public:
 	Swiat(int width, int height)
@@ -23,7 +22,7 @@ public:
 		for(int i=0; i<height; i++)
 			for (int j = 0; j < width; j++)
 			{
-				map[i][j] = new Zwierze(0, 0);
+				map[i][j] = new Zwierze(0, 0, &map, i, j);
 			}
 	}
 
