@@ -7,8 +7,8 @@ class Zwierze : public Organizm
 {
 public:
 	
-	Zwierze(int sila, int inicjatywa, Organizm ****map, int x, int y)
-		:Organizm(sila, inicjatywa, map, x, y)
+	Zwierze(int sila, int inicjatywa)
+		:Organizm(sila, inicjatywa)
 	{
 		wiek = 1;
 	}

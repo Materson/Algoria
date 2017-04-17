@@ -5,8 +5,8 @@ class Czlowiek : public Zwierze
 private:
 
 public:
-	Czlowiek(int sila, int inicjatywa, Organizm ****map, int x, int y)
-		:Zwierze(sila, inicjatywa, map, x, y)
+	Czlowiek(int sila, int inicjatywa)
+		:Zwierze(sila, inicjatywa)
 	{
 		obraz = 'C';
 	}
