@@ -3,14 +3,15 @@ class Organizm
 {
 protected:
 	int sila, inicjatywa, wiek;
+	char obraz=' ';
 public:
 	Organizm(int sila, int inicjatywa)
 		:sila(sila), inicjatywa(inicjatywa)
 	{
 	
 	}
-	void virtual akcja();
-	void virtual kolizja();
-	void virtual rysowanie();
+	virtual void akcja() = 0;
+	virtual void kolizja() = 0;
+	virtual void rysowanie() = 0;
 
 };

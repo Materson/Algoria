@@ -8,6 +8,6 @@ public:
 	Czlowiek(int sila, int inicjatywa)
 		:Zwierze(sila, inicjatywa)
 	{
-
+		obraz = 'C';
 	}
 };

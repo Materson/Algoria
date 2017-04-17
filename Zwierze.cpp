@@ -1,8 +1,12 @@
+#pragma once
 #include "Organizm.h"
+#include<iostream>
+using namespace std;
 
 class Zwierze : public Organizm
 {
 public:
+	
 	Zwierze(int sila, int inicjatywa)
 		:Organizm(sila, inicjatywa)
 	{
@@ -17,5 +21,10 @@ public:
 	void kolizja()
 	{
 
+	}
+
+	void rysowanie()
+	{
+		cout << obraz;
 	}
 };
