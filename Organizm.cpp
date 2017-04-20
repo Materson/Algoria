@@ -41,3 +41,8 @@ void Organizm::setPrev_y(int y)
 {
 	this->prev_y = y;
 }
+
+char Organizm::getImage()
+{
+	return obraz;
+}
