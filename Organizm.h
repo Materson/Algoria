@@ -6,7 +6,7 @@ class Organizm
 protected:
 	int sila, inicjatywa, wiek;
 	int x, y, prev_x, prev_y;
-	char obraz='#';
+	char obraz;
 	Swiat *swiat;
 public:
 	Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y);
