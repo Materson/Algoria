@@ -1,46 +1,40 @@
 #pragma once
 #include<iostream>
-#include"Organizm.h"
-#include"Zwierze.cpp"
+#include"Swiat.h"
+#include"Zwierze.h"
 using namespace std;
 
-class Swiat
+Swiat::Swiat(int width, int height)
+	:width(width), height(height)
 {
-private:
-	int height, width;
-	Organizm ***map;
-public:
-	Swiat(int width, int height)
-		:width(width), height(height)
+	map = new Organizm**[height];
+	for (int i = 0; i < height; i++)
 	{
-		map = new Organizm**[height];
-		for (int i = 0; i < height; i++)
+		map[i] = new Organizm*[width];
+	}
+
+	for(int i=0; i<height; i++)
+		for (int j = 0; j < width; j++)
 		{
-			map[i] = new Organizm*[width];
+			map[i][j] = new Zwierze(0, 0, this, i, j);
 		}
+}
 
-		for(int i=0; i<height; i++)
-			for (int j = 0; j < width; j++)
-			{
-				map[i][j] = new Zwierze(0, 0, &map, i, j);
-			}
-	}
+//Swiat::~Swiat()
+//{
+//	for (int i = 0; i < height; i++)
+//	{
+//		delete[](*map);
+//	}
+//	delete[](map);
+//}
 
-	~Swiat()
-	{
-		for (int i = 0; i < height; i++)
-		{
-			delete[](*map);
-		}
-		delete[](map);
-	}
-
-	void wykonajTure()
+	void Swiat::wykonajTure()
 	{
 
 	}
 
-	void rysujSwiat()
+	void Swiat::rysujSwiat()
 	{
 		for (int i = 0; i <= height * 2; i++)
 		{
@@ -55,4 +49,3 @@ public:
 			cout << endl;
 		}
 	}
-};

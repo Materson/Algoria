@@ -1,4 +1,5 @@
 #pragma once
+class Swiat;
 class Polozenie
 {
 private:
@@ -33,11 +34,11 @@ class Organizm
 protected:
 	int sila, inicjatywa, wiek;
 	Polozenie poz;
-	char obraz=' ';
-	Organizm ****map;
+	char obraz='#';
+	Swiat *swiat;
 public:
-	Organizm(int sila, int inicjatywa, Organizm ****map, int x, int y)
-		:sila(sila), inicjatywa(inicjatywa), map(map), poz(x,y) {}
+	Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)
+		:sila(sila), inicjatywa(inicjatywa), swiat(swiat), poz(x,y) {}
 
 	virtual void akcja() = 0;
 	virtual void kolizja() = 0;
