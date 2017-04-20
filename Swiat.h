@@ -18,4 +18,6 @@ public:
 	void rysujSwiat();
 
 	Organizm* losujOrganizm();
+
+	void moveOrganism(int prev_x, int prev_y, int x, int y);
 };

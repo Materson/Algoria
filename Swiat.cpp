@@ -66,3 +66,9 @@ Organizm* Swiat::losujOrganizm()
 		break;
 	}
 }
+
+void Swiat::moveOrganism(int prev_x, int prev_y, int x, int y)
+{
+	map[x][y] = map[prev_x][prev_y];
+	map[prev_x][prev_y] = NULL;
+}
