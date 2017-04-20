@@ -72,3 +72,9 @@ void Swiat::moveOrganism(int prev_x, int prev_y, int x, int y)
 	map[x][y] = map[prev_x][prev_y];
 	map[prev_x][prev_y] = NULL;
 }
+
+char Swiat::checkPlace(int x, int y)
+{
+	if (map[x][y] == NULL) return ' ';
+	return map[x][y]->getImage();
+}

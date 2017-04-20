@@ -18,16 +18,24 @@ Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
 		int dx[] = { 0, 1, 0, -1 };
 		int dy[] = { 1, 0, -1, 0 };
 		int move = rand() % 4;
-		this->setX(this->getX + dx[move]);
-		this->setY(this->getY + dy[move]);
+		x += dx[move];
+		y += dy[move];
 	}
 
 	void Zwierze::kolizja()
 	{
-
-		if (swiat->map[this->getX][this->getY] == NULL)
+		char place = swiat->checkPlace(x, y);
+		if (place == ' ')
 		{
-			swiat->map[this->getX][this->getY] = swiat->map[this->getPrev_x][this->getPrev_y];
+			swiat->moveOrganism(prev_x, prev_y, x, y);
+		}
+		else if(place == obraz)
+		{
+			//rozmnazanie	
+		}
+		else
+		{
+			//kolizja
 		}
 	}
 
