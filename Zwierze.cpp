@@ -25,6 +25,10 @@ Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
 	void Zwierze::kolizja()
 	{
 
+		if (swiat->map[this->getX][this->getY] == NULL)
+		{
+			swiat->map[this->getX][this->getY] = swiat->map[this->getPrev_x][this->getPrev_y];
+		}
 	}
 
 	void Zwierze::rysowanie()
