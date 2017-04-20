@@ -1,5 +1,5 @@
 #pragma once
-#include "swiat.cpp"
+#include "Swiat.cpp"
 class Polozenie
 {
 private:
