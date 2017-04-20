@@ -1,5 +1,5 @@
 #pragma once
-#include"Organizm.h"
+class Organizm;
 using namespace std;
 
 class Swiat

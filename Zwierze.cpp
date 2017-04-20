@@ -1,5 +1,6 @@
 #pragma once
 #include "Zwierze.h"
+#include"Swiat.h"
 #include<iostream>
 using namespace std;
 
@@ -11,7 +12,7 @@ Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
 
 	void Zwierze::akcja()
 	{
-
+		
 	}
 
 	void Zwierze::kolizja()

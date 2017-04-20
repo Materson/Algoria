@@ -1,7 +1,6 @@
-#pragma once
-#include<iostream>
 #include"Swiat.h"
-#include"Zwierze.h"
+#include"Organizm.h"
+#include<iostream>
 using namespace std;
 
 Swiat::Swiat(int width, int height)
@@ -18,6 +17,7 @@ Swiat::Swiat(int width, int height)
 		{
 			map[i][j] = new Zwierze(0, 0, this, i, j);
 		}
+	
 }
 
 //Swiat::~Swiat()
@@ -31,7 +31,7 @@ Swiat::Swiat(int width, int height)
 
 	void Swiat::wykonajTure()
 	{
-
+		cout << "wykonana tura";
 	}
 
 	void Swiat::rysujSwiat()

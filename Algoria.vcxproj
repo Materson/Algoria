@@ -150,6 +150,7 @@
     <ClCompile Include="Zwierze.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Czlowiek.h" />
     <ClInclude Include="Organizm.h" />
     <ClInclude Include="Swiat.cpp" />
     <ClInclude Include="Swiat.h" />

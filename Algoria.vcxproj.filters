@@ -41,5 +41,8 @@
     <ClInclude Include="Zwierze.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Czlowiek.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,13 +1,9 @@
+#include"Czlowiek.h"
 #include"Zwierze.h"
+#include"Swiat.h"
 
-class Czlowiek : public Zwierze
+Czlowiek::Czlowiek(int sila, int inicjatywa, Swiat *swiat, int x, int y)
+	:Zwierze(sila, inicjatywa, swiat, x, y)
 {
-private:
-
-public:
-	Czlowiek(int sila, int inicjatywa, Swiat *swiat, int x, int y)
-		:Zwierze(sila, inicjatywa, swiat, x, y)
-	{
-		obraz = 'C';
-	}
-};
+	obraz = 'C';
+}
