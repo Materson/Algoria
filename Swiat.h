@@ -10,20 +10,12 @@ private:
 public:
 	Swiat(int width, int height);
 
-	/*~Swiat()
-	{
-	for (int i = 0; i < height; i++)
-	{
-	for (int j = 0; j < width; j++)
-	{
-	delete(map[i][j]);
-	}
-	delete[](map[i]);
-	}
-	delete[](map);
-	}*/
+	~Swiat();
+	
 
 	void wykonajTure();
 
 	void rysujSwiat();
+
+	Organizm* losujOrganizm();
 };
