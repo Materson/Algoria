@@ -5,7 +5,7 @@ class Organizm
 {
 protected:
 	int sila, inicjatywa, wiek;
-	int x,y;
+	int x, y, prev_x, prev_y;
 	char obraz='#';
 	Swiat *swiat;
 public:
@@ -17,6 +17,10 @@ public:
 	
 	int getX();
 	int getY();
+	int getPrev_x();
+	int getPrev_y();
 	void setX(int x);
 	void setY(int y);
+	void setPrev_x(int prev_x);
+	void setPrev_y(int prev_y);
 };
