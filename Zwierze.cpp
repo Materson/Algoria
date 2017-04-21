@@ -12,7 +12,6 @@ Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
 
 void Zwierze::akcja()
 {
-	wiek++;
 	int dx[] = { 0, 1, 0, -1 };
 	int dy[] = { 1, 0, -1, 0 };
 	int move = rand() % 4;
