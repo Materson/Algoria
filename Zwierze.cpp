@@ -1,6 +1,7 @@
 #pragma once
 #include "Zwierze.h"
 #include"Swiat.h"
+#include"config.h"
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
@@ -12,8 +13,8 @@ Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
 
 void Zwierze::akcja()
 {
-	int dx[] = { 0, 1, 1, 1, 0, -1, -1, -1 };
-	int dy[] = { -1, -1, 0, 1, 1, 1, 0, -1 };
+	int dx[] = { MOVE_RANGE_X };
+	int dy[] = { MOVE_RANGE_Y };
 	bool findPlace = false;
 	int range = sizeof(dx) / sizeof(dx[0]);
 	while (range-- > 0 && !findPlace)
@@ -38,6 +39,9 @@ void Zwierze::kolizja()
 	}
 	else if (place == obraz)
 	{
+		x = prev_x;
+		y = prev_y;
+
 		//rozmnazanie	
 	}
 	else
