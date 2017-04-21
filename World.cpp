@@ -20,6 +20,7 @@ World::World(int width, int height)
 	}
 
 	fillWorld();
+
 }
 
 //Swiat::~Swiat()
@@ -56,7 +57,13 @@ void World::drawWorld()
 			else if (i % 2 == 0 && j % 2 == 1) cout << "-";
 
 			if (i % 2 == 1 && j % 2 == 0)cout << "|";
-			if (i % 2 == 1 && j % 2 == 1) map[j/2][i/2]->draw();
+			if (i % 2 == 1 && j % 2 == 1)
+			{
+				if (map[j / 2][i / 2] == NULL)
+					cout << " ";
+				else
+					map[j / 2][i / 2]->draw();
+			}
 		}
 		cout << endl;
 	}
@@ -133,9 +140,13 @@ void World::fillWorld()
 	{
 		for (int j = 0; j < width; j++)
 		{
-			if (randInt(1, 10) % FILL_RATIO == 0)
+			if (randInt(1, 100) <= FILL_RATIO*10)
 			{
 				addOrganism(organism[randInt(1, 100) % organism.length()], j, i);
+			}
+			else
+			{
+				map[j][i] = NULL;
 			}
 		}
 	}
