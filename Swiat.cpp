@@ -78,3 +78,8 @@ char Swiat::checkPlace(int x, int y)
 	if (map[x][y] == NULL) return ' ';
 	return map[x][y]->getImage();
 }
+
+int Swiat::randInt(int min, int max)
+{
+	return rand() % (max - min) + min;
+}
