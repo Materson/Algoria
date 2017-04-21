@@ -151,6 +151,7 @@
     <ClCompile Include="Zwierze.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="config.h" />
     <ClInclude Include="Czlowiek.h" />
     <ClInclude Include="Organizm.h" />
     <ClInclude Include="Swiat.cpp" />

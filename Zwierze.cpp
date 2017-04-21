@@ -19,7 +19,7 @@ void Zwierze::akcja()
 	int range = sizeof(dx) / sizeof(dx[0]);
 	while (range-- > 0 && !findPlace)
 	{
-		int move = rand() % 4;
+		int move = rand() % (sizeof(dx) / sizeof(dx[0]));
 		if (x + dx[move] >= swiat->getWidth() || y + dy[move] >= swiat->getHeight()
 			|| x + dx[move] < 0 || y + dy[move] < 0)
 			continue;
@@ -33,16 +33,23 @@ void Zwierze::akcja()
 void Zwierze::kolizja()
 {
 	char place = swiat->checkPlace(x, y);
+
 	if (place == ' ')
 	{
 		swiat->moveOrganism(prev_x, prev_y, x, y);
 	}
 	else if (place == obraz)
 	{
+		//rozmnazanie	
 		x = prev_x;
 		y = prev_y;
 
-		//rozmnazanie	
+		int new_x = x;
+		int new_y = y;
+		if (swiat->findFreeSpace(&new_x, &new_y, FIND_RANGE))
+		{
+			swiat->addOrganism(obraz, new_x, new_y);
+		}
 	}
 	else
 	{

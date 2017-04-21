@@ -1,6 +1,7 @@
 #include"Swiat.h"
 #include"Organizm.h"
 #include"Czlowiek.h"
+#include"config.h"
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
@@ -89,7 +90,36 @@ char Swiat::checkPlace(int x, int y)
 	return map[x][y]->getImage();
 }
 
+//set x, y at free place and return 1, otherwise return 0
+int Swiat::findFreeSpace(int *x, int *y, int range)
+{
+	int dx[] = { MOVE_RANGE_X };
+	int dy[] = { MOVE_RANGE_Y };
+
+	for (int j = 1; j <= range; j++)
+	{
+		for (int i = 0; i < sizeof(dx) / sizeof(dx[0]); i++)
+		{
+			if ((*x) + (dx[i] * j) >= width || (*y) + (dy[i] * j) >= height
+				|| ((*x) + dx[i] * j) < 0 || (*y) + (dy[i] * j) < 0)
+				continue;
+			else if (checkPlace((*x) + (dx[i] * j), (*y) + (dy[i] * j)) != ' ')
+				continue;
+
+			*x += (dx[i] * j);
+			*y += (dy[i] * j);
+			return 1;
+		}
+	}
+	return 0;
+}
+
 int Swiat::randInt(int min, int max)
 {
 	return rand() % (max - min) + min;
+}
+
+void Swiat::addOrganism(char image, int x, int y)
+{
+
 }

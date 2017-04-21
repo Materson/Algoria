@@ -27,5 +27,9 @@ public:
 
 	char checkPlace(int x, int y);
 
+	int findFreeSpace(int *x, int *y, int range);
+
 	int randInt(int min, int max);
+
+	void addOrganism(char image, int x, int y);
 };
