@@ -1,20 +1,20 @@
 #pragma once
-class Swiat;
+class World;
 
-class Organizm
+class Organism
 {
 protected:
-	int sila, inicjatywa, wiek = 1;
+	int power, activity, old = 1;
 	int x, y, prev_x, prev_y;
-	char obraz;
-	Swiat *swiat;
+	char image;
+	World *world;
 	int skill = 0;
 public:
 	/*Organizm::Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)*/
 
-	virtual void akcja() = 0;
-	virtual void kolizja() = 0;
-	virtual void rysowanie() = 0;
+	virtual void action() = 0;
+	virtual void collision() = 0;
+	virtual void draw() = 0;
 	
 	int getX();
 	int getY();

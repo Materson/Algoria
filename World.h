@@ -1,27 +1,27 @@
 #pragma once
-class Organizm;
+class Organism;
 using namespace std;
 
-class Swiat
+class World
 {
 private:
 	int height, width;
-	Organizm ***map;
+	Organism ***map;
 
 public:
-	Swiat(int width, int height);
+	World(int width, int height);
 
-	~Swiat();
+	~World();
 	
 	int getHeight();
 
 	int getWidth();
 
-	void wykonajTure();
+	void nextTurn();
 
-	void rysujSwiat();
+	void drawWorld();
 
-	Organizm* losujOrganizm();
+	Organism* randOrganism();
 
 	void moveOrganism(int prev_x, int prev_y, int x, int y);
 

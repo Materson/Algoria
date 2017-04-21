@@ -1,4 +1,4 @@
-#include"Organizm.h"
+#include"Organism.h"
 
 //Organizm::Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)
 //	:sila(sila), inicjatywa(inicjatywa), swiat(swiat), x(x), y(y), prev_x(x), prev_y(y)
@@ -8,46 +8,46 @@
 //		skill = 0;
 //	}
 
-int Organizm::getX()
+int Organism::getX()
 {
 	return x;
 }
 
-int Organizm::getY()
+int Organism::getY()
 {
 	return y;
 }
-int Organizm::getPrev_x()
+int Organism::getPrev_x()
 {
 	return prev_x;
 }
 
-int Organizm::getPrev_y()
+int Organism::getPrev_y()
 {
 	return prev_y;
 }
 
-void Organizm::setX(int x)
+void Organism::setX(int x)
 {
 	this->x = x;
 }
 
-void Organizm::setY(int y)
+void Organism::setY(int y)
 {
 	this->y = y;
 }
 
-void Organizm::setPrev_x(int x)
+void Organism::setPrev_x(int x)
 {
 	this->prev_x = x;
 }
 
-void Organizm::setPrev_y(int y)
+void Organism::setPrev_y(int y)
 {
 	this->prev_y = y;
 }
 
-char Organizm::getImage()
+char Organism::getImage()
 {
-	return obraz;
+	return image;
 }

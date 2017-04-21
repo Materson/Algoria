@@ -1,8 +1,8 @@
 #pragma once
-#include"Zwierze.h"
+#include"Animal.h"
 
-class Wolf : public Zwierze
+class Wolf : public Animal
 {
 public:
-	Wolf(int sila, int inicjatywa, Swiat *swiat, int x, int y);
+	Wolf(int sila, int inicjatywa, World *swiat, int x, int y);
 };

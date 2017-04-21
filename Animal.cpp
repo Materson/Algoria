@@ -1,6 +1,6 @@
 #pragma once
-#include "Zwierze.h"
-#include"Swiat.h"
+#include "Animal.h"
+#include"World.h"
 #include"config.h"
 #include<iostream>
 #include<cstdlib>
@@ -8,10 +8,10 @@
 #include<typeinfo>
 using namespace std;
 
-//Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
-//	:Organizm(sila, inicjatywa, swiat, x, y) {}
+//Zwierze::Zwierze(int sila, int inicjatywa, world *world, int x, int y)
+//	:Organizm(sila, inicjatywa, world, x, y) {}
 
-void Zwierze::akcja()
+void Animal::action()
 {
 	int dx[] = { MOVE_RANGE_X };
 	int dy[] = { MOVE_RANGE_Y };
@@ -20,7 +20,7 @@ void Zwierze::akcja()
 	while (range-- > 0 && !findPlace)
 	{
 		int move = rand() % (sizeof(dx) / sizeof(dx[0]));
-		if (x + dx[move] >= swiat->getWidth() || y + dy[move] >= swiat->getHeight()
+		if (x + dx[move] >= world->getWidth() || y + dy[move] >= world->getHeight()
 			|| x + dx[move] < 0 || y + dy[move] < 0)
 			continue;
 
@@ -30,15 +30,15 @@ void Zwierze::akcja()
 	}
 }
 
-void Zwierze::kolizja()
+void Animal::collision()
 {
-	char place = swiat->checkPlace(x, y);
+	char place = world->checkPlace(x, y);
 
 	if (place == ' ')
 	{
-		swiat->moveOrganism(prev_x, prev_y, x, y);
+		world->moveOrganism(prev_x, prev_y, x, y);
 	}
-	else if (place == obraz)
+	else if (place == image)
 	{
 		//rozmnazanie	
 		x = prev_x;
@@ -46,9 +46,9 @@ void Zwierze::kolizja()
 
 		int new_x = x;
 		int new_y = y;
-		if (swiat->findFreeSpace(&new_x, &new_y, FIND_RANGE))
+		if (world->findFreeSpace(&new_x, &new_y, FIND_RANGE))
 		{
-			swiat->addOrganism(obraz, new_x, new_y);
+			world->addOrganism(image, new_x, new_y);
 		}
 	}
 	else
@@ -57,7 +57,7 @@ void Zwierze::kolizja()
 	}
 }
 
-void Zwierze::rysowanie()
+void Animal::draw()
 {
-	cout << obraz;
+	cout << image;
 }
