@@ -8,15 +8,26 @@
 using namespace std;
 
 Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
-		:Organizm(sila, inicjatywa, swiat, x, y){}
+	:Organizm(sila, inicjatywa, swiat, x, y) {}
 
 void Zwierze::akcja()
 {
 	int dx[] = { 0, 1, 0, -1 };
 	int dy[] = { 1, 0, -1, 0 };
-	int move = rand() % 4;
-	x += dx[move];
-	y += dy[move];
+	bool findPlace = false;
+	int range = sizeof(dx) / sizeof(dx[0]);
+	while (range-- > 0 && !findPlace)
+	{
+		int move = rand() % 4;
+		if (x + dx[move] >= swiat->getWidth() || y + dy[move] >= swiat->getHeight()
+			|| x + dx[move] < 0 || y + dy[move] < 0)
+			continue;
+
+		findPlace = true;
+		x += dx[move];
+		y += dy[move];
+	}
+
 }
 
 void Zwierze::kolizja()
@@ -26,7 +37,7 @@ void Zwierze::kolizja()
 	{
 		swiat->moveOrganism(prev_x, prev_y, x, y);
 	}
-	else if(place == obraz)
+	else if (place == obraz)
 	{
 		//rozmnazanie	
 	}
