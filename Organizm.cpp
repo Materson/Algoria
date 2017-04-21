@@ -5,6 +5,7 @@ Organizm::Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)
 	{
 		obraz = ' ';
 		wiek = 1;
+		skill = 0;
 	}
 
 int Organizm::getX()

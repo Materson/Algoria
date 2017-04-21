@@ -8,6 +8,7 @@ protected:
 	int x, y, prev_x, prev_y;
 	char obraz;
 	Swiat *swiat;
+	int skill;
 public:
 	Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y);
 
