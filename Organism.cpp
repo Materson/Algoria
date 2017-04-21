@@ -56,3 +56,9 @@ int Organism::getActivity()
 {
 	return activity;
 }
+
+int Organism::getOld()
+{
+	return old;
+}
+	

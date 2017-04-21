@@ -21,7 +21,8 @@ World::World(int width, int height)
 	}
 
 	fillWorld();
-
+	order = new Organism*[width*height];
+	setOrder();
 }
 
 //Swiat::~Swiat()
@@ -161,7 +162,7 @@ void World::fillWorld()
 void World::delOrganism(int x, int y)
 {
 	delete(map[x][y]);
-	map[x][y] == NULL;
+	map[x][y] = NULL;
 }
 
 void World::battle(Organism *attacker, int x, int y)
@@ -176,4 +177,41 @@ void World::battle(Organism *attacker, int x, int y)
 	{
 		delOrganism(defender->getPrev_x(), defender->getPrev_y());
 	}
+}
+
+void World::setOrder()
+{
+	int k = 0;
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			if (map[j][i] != NULL)
+			{
+				order[k++] = map[j][i];
+			}
+		}
+	}
+
+	qsort(order, height*width, sizeof(order) / sizeof(order[0]), sortOrder);
+}
+
+int World::sortOrder(const void *or1, const void *or2)
+{
+	Organism *org1 = (Organism*) or1;
+	Organism *org2 = (Organism*)or2;
+
+	if (org1->getActivity() > org2->getActivity())
+		return 1;
+	else if (org1->getActivity() < org2->getActivity())
+		return -1;
+	else
+	{
+		if (org1->getOld() > org2->getOld())
+			return 1;
+		else if (org1->getOld() < org2->getOld())
+			return -1;
+	}
+
+	return 0;
 }

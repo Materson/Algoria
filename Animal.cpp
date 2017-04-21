@@ -13,6 +13,7 @@ using namespace std;
 
 void Animal::action()
 {
+	old++;
 	int dx[] = { MOVE_RANGE_X };
 	int dy[] = { MOVE_RANGE_Y };
 	bool findPlace = false;

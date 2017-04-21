@@ -21,6 +21,7 @@ public:
 	int getPrev_x();
 	int getPrev_y();
 	int getActivity();
+	int getOld();
 	void setX(int x);
 	void setY(int y);
 	void setPrev_x(int prev_x);

@@ -7,6 +7,7 @@ class World
 private:
 	int height, width;
 	Organism ***map;
+	Organism **order;
 
 public:
 	World(int width, int height);
@@ -38,4 +39,8 @@ public:
 	void battle(Organism *attacker, int x, int y);
 
 	void delOrganism(int x, int y);
+
+	void setOrder();
+
+	int sortOrder(const void *org1, const void *org2);
 };
