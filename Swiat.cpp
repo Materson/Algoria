@@ -33,6 +33,16 @@ Swiat::Swiat(int width, int height)
 //	delete[](map);
 //}
 
+int Swiat::getHeight()
+{
+	return height;
+}
+
+int Swiat::getWidth()
+{
+	return width;
+}
+
 void Swiat::wykonajTure()
 {
 	cout << "wykonana tura";

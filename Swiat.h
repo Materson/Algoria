@@ -12,6 +12,9 @@ public:
 
 	~Swiat();
 	
+	int getHeight();
+
+	int getWidth();
 
 	void wykonajTure();
 
