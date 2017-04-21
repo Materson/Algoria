@@ -1,12 +1,12 @@
 #include"Organizm.h"
 
-Organizm::Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)
-	:sila(sila), inicjatywa(inicjatywa), swiat(swiat), x(x), y(y), prev_x(x), prev_y(y)
-	{
-		obraz = ' ';
-		wiek = 1;
-		skill = 0;
-	}
+//Organizm::Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)
+//	:sila(sila), inicjatywa(inicjatywa), swiat(swiat), x(x), y(y), prev_x(x), prev_y(y)
+//	{
+//		obraz = ' ';
+//		wiek = 1;
+//		skill = 0;
+//	}
 
 int Organizm::getX()
 {

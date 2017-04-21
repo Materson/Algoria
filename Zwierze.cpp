@@ -8,8 +8,8 @@
 #include<typeinfo>
 using namespace std;
 
-Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
-	:Organizm(sila, inicjatywa, swiat, x, y) {}
+//Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
+//	:Organizm(sila, inicjatywa, swiat, x, y) {}
 
 void Zwierze::akcja()
 {

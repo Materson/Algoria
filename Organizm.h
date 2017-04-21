@@ -4,13 +4,13 @@ class Swiat;
 class Organizm
 {
 protected:
-	int sila, inicjatywa, wiek;
+	int sila, inicjatywa, wiek = 1;
 	int x, y, prev_x, prev_y;
 	char obraz;
 	Swiat *swiat;
-	int skill;
+	int skill = 0;
 public:
-	Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y);
+	/*Organizm::Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)*/
 
 	virtual void akcja() = 0;
 	virtual void kolizja() = 0;
