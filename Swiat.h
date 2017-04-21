@@ -7,6 +7,7 @@ class Swiat
 private:
 	int height, width;
 	Organizm ***map;
+
 public:
 	Swiat(int width, int height);
 

@@ -12,8 +12,8 @@ Zwierze::Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y)
 
 void Zwierze::akcja()
 {
-	int dx[] = { 0, 1, 0, -1 };
-	int dy[] = { 1, 0, -1, 0 };
+	int dx[] = { 0, 1, 1, 1, 0, -1, -1, -1 };
+	int dy[] = { -1, -1, 0, 1, 1, 1, 0, -1 };
 	bool findPlace = false;
 	int range = sizeof(dx) / sizeof(dx[0]);
 	while (range-- > 0 && !findPlace)
@@ -27,7 +27,6 @@ void Zwierze::akcja()
 		x += dx[move];
 		y += dy[move];
 	}
-
 }
 
 void Zwierze::kolizja()
