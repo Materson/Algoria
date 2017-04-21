@@ -32,4 +32,6 @@ public:
 	int randInt(int min, int max);
 
 	void addOrganism(char image, int x, int y);
+
+	void World::fillWorld();
 };

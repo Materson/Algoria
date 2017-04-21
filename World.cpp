@@ -1,10 +1,12 @@
 #include"World.h"
 #include"Organism.h"
 #include"Human.h"
+#include"Wolf.h"
 #include"config.h"
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
+#include<string>
 using namespace std;
 
 World::World(int width, int height)
@@ -17,12 +19,7 @@ World::World(int width, int height)
 		map[i] = new Organism*[width];
 	}
 
-	for(int i=0; i<height; i++)
-		for (int j = 0; j < width; j++)
-		{
-			map[j][i] = new Animal(0, 0, this, i, j);
-		}
-	
+	fillWorld();
 }
 
 //Swiat::~Swiat()
@@ -121,5 +118,27 @@ int World::randInt(int min, int max)
 
 void World::addOrganism(char image, int x, int y)
 {
+	switch (image)
+	{
+	case 'w':
+		map[x][y] = new Wolf(W_POWER, W_ACTIVITY, this, x, y);
+		break;
+	}
+}
+
+void World::fillWorld()
+{
+	string organism = ORGANISM_RATIO;
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			if (randInt(1, 10) % FILL_RATIO == 0)
+			{
+				addOrganism(organism[randInt(1, 100) % organism.length()], j, i);
+			}
+		}
+	}
+	
 
 }

@@ -4,5 +4,5 @@
 class Wolf : public Animal
 {
 public:
-	Wolf(int sila, int inicjatywa, World *swiat, int x, int y);
+	Wolf(int power, int activity, World *world, int x, int y);
 };

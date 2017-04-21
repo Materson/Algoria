@@ -1,15 +1,15 @@
 #include<iostream>
-#include "Swiat.cpp"
-#include"Zwierze.h"
+#include "World.cpp"
+#include"Animal.h"
 using namespace std;
 
 int main()
 {
-	Swiat *mapa = new Swiat(5, 5);
-	mapa->rysujSwiat();
+	World *map= new World(5, 5);
+	map->drawWorld();
 	/*Zwierze *byk = new Zwierze();
 	byk->rysowanie();*/
-	Zwierze zw(0,0, mapa, 2, 3);
+	Wolf zw(0,0, map, 2, 3);
 
     return 0;
 }

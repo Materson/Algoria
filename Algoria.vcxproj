@@ -155,6 +155,7 @@
     <ClInclude Include="config.h" />
     <ClInclude Include="Human.h" />
     <ClInclude Include="Organism.h" />
+    <ClInclude Include="Sheep.h" />
     <ClInclude Include="World.cpp" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Wolf.h" />
