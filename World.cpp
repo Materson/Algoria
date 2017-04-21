@@ -2,6 +2,7 @@
 #include"Organism.h"
 #include"Human.h"
 #include"Wolf.h"
+#include"Sheep.h"
 #include"config.h"
 #include<iostream>
 #include<cstdlib>
@@ -129,6 +130,9 @@ void World::addOrganism(char image, int x, int y)
 	{
 	case 'w':
 		map[x][y] = new Wolf(W_POWER, W_ACTIVITY, this, x, y);
+		break;
+	case 'b':
+		map[x][y] = new Sheep(B_POWER, B_ACTIVITY, this, x, y);
 		break;
 	}
 }

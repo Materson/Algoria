@@ -1,6 +1,6 @@
-#include"Wolf.h"
+#include"Sheep.h"
 
-Wolf::Wolf(int sila, int inicjatywa, World *world, int x, int y)
+Sheep::Sheep(int power, int activity, World *world, int x, int y)
 {
 	this->power = power;
 	this->activity = activity;
@@ -9,5 +9,5 @@ Wolf::Wolf(int sila, int inicjatywa, World *world, int x, int y)
 	this->y = y;
 	this->prev_x = x;
 	this->prev_y = y;
-	image = 'b';
+	image = 'w';
 }
