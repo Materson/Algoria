@@ -36,6 +36,7 @@ void Animal::collision()
 
 	if (place == ' ')
 	{
+		//move
 		world->moveOrganism(prev_x, prev_y, x, y);
 	}
 	else if (place == image)
@@ -53,7 +54,9 @@ void Animal::collision()
 	}
 	else
 	{
-		//kolizja
+		//attack
+		world->battle(this, x, y);
+
 	}
 }
 

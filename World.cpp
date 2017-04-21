@@ -131,7 +131,7 @@ void World::addOrganism(char image, int x, int y)
 	case 'w':
 		map[x][y] = new Wolf(W_POWER, W_ACTIVITY, this, x, y);
 		break;
-	case 'b':
+	case 's':
 		map[x][y] = new Sheep(B_POWER, B_ACTIVITY, this, x, y);
 		break;
 	}
@@ -146,7 +146,7 @@ void World::fillWorld()
 		{
 			if (randInt(1, 100) <= FILL_RATIO*10)
 			{
-				addOrganism(organism[randInt(1, 100) % organism.length()], j, i);
+				addOrganism(organism[randInt(1, 100) % organism.size()], j, i);
 			}
 			else
 			{
@@ -156,4 +156,24 @@ void World::fillWorld()
 	}
 	
 
+}
+
+void World::delOrganism(int x, int y)
+{
+	delete(map[x][y]);
+	map[x][y] == NULL;
+}
+
+void World::battle(Organism *attacker, int x, int y)
+{
+	Organism *defender = map[x][y];
+
+	if (attacker->getActivity() < defender->getActivity())
+	{
+		delOrganism(attacker->getPrev_x(), attacker->getPrev_y());
+	}
+	else
+	{
+		delOrganism(defender->getPrev_x(), defender->getPrev_y());
+	}
 }

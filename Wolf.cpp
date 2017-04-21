@@ -9,5 +9,5 @@ Wolf::Wolf(int sila, int inicjatywa, World *world, int x, int y)
 	this->y = y;
 	this->prev_x = x;
 	this->prev_y = y;
-	image = 'b';
+	image = 'w';
 }

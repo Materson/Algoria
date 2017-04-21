@@ -1,5 +1,5 @@
 #pragma once
-#define ORGANISM_RATIO "bwww"
+#define ORGANISM_RATIO "sssw"
 #define FILL_RATIO 5
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1

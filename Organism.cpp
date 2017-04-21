@@ -51,3 +51,8 @@ char Organism::getImage()
 {
 	return image;
 }
+
+int Organism::getActivity()
+{
+	return activity;
+}

@@ -33,5 +33,9 @@ public:
 
 	void addOrganism(char image, int x, int y);
 
-	void World::fillWorld();
+	void fillWorld();
+	
+	void battle(Organism *attacker, int x, int y);
+
+	void delOrganism(int x, int y);
 };
