@@ -48,9 +48,10 @@ int World::getWidth()
 
 void World::nextTurn()
 {
-	for (int i = 0; orgNum; i++)
+	int num = orgNum;
+	for (int i = 0; i < num; i++)
 	{
-		if(order != NULL)
+		if(order[i] != NULL)
 			order[i]->action();
 	}
 	setOrder();
@@ -170,6 +171,14 @@ void World::fillWorld()
 
 void World::delOrganism(int x, int y)
 {
+	for (int i = 0; i < orgNum; i++)
+	{
+		if (order[i] == map[x][y])
+		{
+			order[i] = NULL;
+			break;
+		}
+	}
 	delete(map[x][y]);
 	map[x][y] = NULL;
 	orgNum--;
