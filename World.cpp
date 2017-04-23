@@ -22,6 +22,7 @@ World::World(int width, int height)
 	}
 
 	fillWorld();
+	drawWorld();
 	order = new Organism*[width*height];
 	setOrder();
 }
@@ -47,15 +48,17 @@ int World::getWidth()
 
 void World::nextTurn()
 {
-	for (int i = 0; sizeof(order)/sizeof(order[0]); i++)
+	for (int i = 0; orgNum; i++)
 	{
-		order[i]->action();
+		if(order != NULL)
+			order[i]->action();
 	}
 	setOrder();
 }
 
 void World::drawWorld()
 {
+	system("cls");
 	for (int i = 0; i <= height * 2; i++)
 	{
 		for (int j = 0; j <= width * 2; j++)
@@ -76,18 +79,18 @@ void World::drawWorld()
 	}
 }
 
-Organism* World::randOrganism()
-{
-	//Organizm *organizmy[] = { new Czlowiek(1,2,this,2,1) };
-	int rand;
-	switch (rand)
-	{
-	case 1:
-		return new Human(1, 2, this, 2, 1);
-	default:
-		break;
-	}
-}
+//Organism* World::randOrganism()
+//{
+//	//Organizm *organizmy[] = { new Czlowiek(1,2,this,2,1) };
+//	int rand;
+//	switch (rand)
+//	{
+//	case 1:
+//		return new Human(1, 2, this, 2, 1);
+//	default:
+//		break;
+//	}
+//}
 
 void World::moveOrganism(int prev_x, int prev_y, int x, int y)
 {
@@ -141,6 +144,7 @@ void World::addOrganism(char image, int x, int y)
 		map[x][y] = new Sheep(B_POWER, B_ACTIVITY, this, x, y);
 		break;
 	}
+	orgNum++;
 }
 
 void World::fillWorld()
@@ -168,6 +172,7 @@ void World::delOrganism(int x, int y)
 {
 	delete(map[x][y]);
 	map[x][y] = NULL;
+	orgNum--;
 }
 
 void World::setOrder()
@@ -177,31 +182,45 @@ void World::setOrder()
 	{
 		for (int j = 0; j < width; j++)
 		{
-			if (map[j][i] != NULL)
-			{
-				order[k++] = map[j][i];
-			}
+			order[k++] = map[j][i];
 		}
 	}
 
 	qsort(order, height*width, sizeof(Organism*), sortOrder);
+	for (int i = 0; i < orgNum; i++)
+	{
+		cout << i << " ";
+
+		if (order[i] == NULL)
+			cout << "NULL";
+		else
+			order[i]->draw();
+		cout << endl;
+	}
 }
 
 int World::sortOrder(const void *or1, const void *or2)
 {
-	Organism *org1 = (Organism*) or1;
-	Organism *org2 = (Organism*) or2;
+	Organism *org1 = *(Organism**) or1;
+	Organism *org2 = *(Organism**) or2;
+
+	if (org1 == NULL && org2 == NULL)
+		return 0;
+	else if (org1 != NULL && org2 == NULL)
+		return -1;
+	else if(org1 == NULL && org2 != NULL)
+		return 1;
 
 	if (org1->getActivity() > org2->getActivity())
-		return 1;
-	else if (org1->getActivity() < org2->getActivity())
 		return -1;
+	else if (org1->getActivity() < org2->getActivity())
+		return 1;
 	else
 	{
 		if (org1->getOld() > org2->getOld())
-			return 1;
-		else if (org1->getOld() < org2->getOld())
 			return -1;
+		else if (org1->getOld() < org2->getOld())
+			return 1;
 	}
 
 	return 0;

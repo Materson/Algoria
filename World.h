@@ -7,6 +7,7 @@ class World
 {
 private:
 	int height, width;
+	int orgNum = 0;
 	Organism ***map;
 	Organism **order;
 
@@ -23,7 +24,7 @@ public:
 
 	void drawWorld();
 
-	Organism* randOrganism();
+	/*Organism* randOrganism();*/
 
 	void moveOrganism(int prev_x, int prev_y, int x, int y);
 
@@ -43,7 +44,8 @@ public:
 
 	void setOrder();
 
-	static int sortOrder(const void *or1, const void *or2);
+	int static sortOrder(const void *or1, const void *or2);
+	
 
 	void collision(Organism *attacker, int x, int y);
 };
