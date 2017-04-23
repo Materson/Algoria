@@ -26,7 +26,7 @@ public:
 
 	/*Organism* randOrganism();*/
 
-	void moveOrganism(int prev_x, int prev_y, int x, int y);
+	void moveOrganism(Organism *org, int x, int y);
 
 	char checkPlace(int x, int y);
 

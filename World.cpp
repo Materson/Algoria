@@ -93,12 +93,12 @@ void World::drawWorld()
 //	}
 //}
 
-void World::moveOrganism(int prev_x, int prev_y, int x, int y)
+void World::moveOrganism(Organism *org, int x, int y)
 {
-	map[x][y] = map[prev_x][prev_y];
-	map[prev_x][prev_y] = NULL;
-	map[x][y]->setX(x);
-	map[x][y]->setY(y);
+	map[x][y] = org;
+	map[org->getX()][org->getY()] = NULL;
+	org->setX(x);
+	org->setY(y);
 }
 
 char World::checkPlace(int x, int y)
@@ -243,7 +243,7 @@ void World::collision(Organism *attacker, int x, int y)
 	if (stat == AT_WIN)
 	{
 		delOrganism(x, y);
-		moveOrganism(attacker->getX(), attacker->getY(), x, y);
+		moveOrganism(attacker, x, y);
 	}
 	else if(stat == DEF_WIN)
 	{

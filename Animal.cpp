@@ -43,7 +43,7 @@ void Animal::action()
 
 	if (world->checkPlace(x + dx[place], y + dy[place]) == ' ')
 	{
-		world->moveOrganism(x, y, x + dx[place], y + dy[place]);
+		world->moveOrganism(this, x + dx[place], y + dy[place]);
 	}
 	else
 	{
