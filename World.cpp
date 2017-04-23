@@ -97,6 +97,8 @@ void World::moveOrganism(int prev_x, int prev_y, int x, int y)
 {
 	map[x][y] = map[prev_x][prev_y];
 	map[prev_x][prev_y] = NULL;
+	map[x][y]->setX(x);
+	map[x][y]->setY(y);
 }
 
 char World::checkPlace(int x, int y)
@@ -116,7 +118,7 @@ int World::findFreeSpace(int *x, int *y, int range)
 		for (int i = 0; i < sizeof(dx) / sizeof(dx[0]); i++)
 		{
 			if ((*x) + (dx[i] * j) >= width || (*y) + (dy[i] * j) >= height
-				|| ((*x) + dx[i] * j) < 0 || (*y) + (dy[i] * j) < 0)
+				|| (*x) + (dx[i] * j) < 0 || (*y) + (dy[i] * j) < 0)
 				continue;
 			else if (checkPlace((*x) + (dx[i] * j), (*y) + (dy[i] * j)) != ' ')
 				continue;

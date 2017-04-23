@@ -26,7 +26,7 @@ void Animal::action()
 		move[i] = i;
 	}
 
-	while (range > 0 && !findPlace)
+	while (range >= 0 && !findPlace)
 	{
 		place = world->randInt(0, range--);
 		if (x + dx[move[place]] >= world->getWidth() || y + dy[move[place]] >= world->getHeight()
