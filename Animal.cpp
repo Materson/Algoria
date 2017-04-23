@@ -19,24 +19,35 @@ void Animal::action()
 	int dy[] = { MOVE_RANGE_Y };
 	bool findPlace = false;
 	int range = sizeof(dx) / sizeof(dx[0]);
-	int move;
-	while (range-- > 0 && !findPlace)
+	int *move = new int[range];
+	int place;
+	for (int i = 0; i < range; i++)
 	{
-		move = rand() % (sizeof(dx) / sizeof(dx[0]));
-		if (x + dx[move] >= world->getWidth() || y + dy[move] >= world->getHeight()
-			|| x + dx[move] < 0 || y + dy[move] < 0)
-			continue;
-
-		findPlace = true;
+		move[i] = i;
 	}
 
-	if (world->checkPlace(x + dx[move], y + dy[move]) == ' ')
+	while (range > 0 && !findPlace)
 	{
-		world->moveOrganism(x, y, x + dx[move], y + dy[move]);
+		place = world->randInt(0, range--);
+		if (x + dx[move[place]] >= world->getWidth() || y + dy[move[place]] >= world->getHeight()
+			|| x + dx[move[place]] < 0 || y + dy[move[place]] < 0)
+
+		{
+			move[place] = move[range];
+			continue;
+		}
+
+		findPlace = true;
+		place = move[place];
+	}
+
+	if (world->checkPlace(x + dx[place], y + dy[place]) == ' ')
+	{
+		world->moveOrganism(x, y, x + dx[place], y + dy[place]);
 	}
 	else
 	{
-		world->collision(this, x + dx[move], y + dy[move]);
+		world->collision(this, x + dx[place], y + dy[place]);
 	}
 }
 
