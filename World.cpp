@@ -47,7 +47,11 @@ int World::getWidth()
 
 void World::nextTurn()
 {
-	cout << "wykonana tura";
+	for (int i = 0; sizeof(order)/sizeof(order[0]); i++)
+	{
+		order[i]->action();
+	}
+	setOrder();
 }
 
 void World::drawWorld()
