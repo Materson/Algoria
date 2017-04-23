@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	World *map= new World(5, 5);
-	map->drawWorld();
+	//map->drawWorld();
 	char z;
 	cin >> z;
 	while (z == 'n')

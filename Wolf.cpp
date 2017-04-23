@@ -1,6 +1,6 @@
 #include"Wolf.h"
 
-Wolf::Wolf(int sila, int inicjatywa, World *world, int x, int y)
+Wolf::Wolf(int power, int activity, World *world, int x, int y)
 {
 	this->power = power;
 	this->activity = activity;
