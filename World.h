@@ -42,5 +42,5 @@ public:
 
 	void setOrder();
 
-	int sortOrder(const void *org1, const void *org2);
+	static int sortOrder(const void *or1, const void *or2);
 };

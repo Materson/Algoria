@@ -193,13 +193,13 @@ void World::setOrder()
 		}
 	}
 
-	qsort(order, height*width, sizeof(order) / sizeof(order[0]), sortOrder);
+	qsort(order, height*width, sizeof(Organism*), sortOrder);
 }
 
 int World::sortOrder(const void *or1, const void *or2)
 {
 	Organism *org1 = (Organism*) or1;
-	Organism *org2 = (Organism*)or2;
+	Organism *org2 = (Organism*) or2;
 
 	if (org1->getActivity() > org2->getActivity())
 		return 1;
