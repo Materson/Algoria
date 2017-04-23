@@ -1,4 +1,5 @@
 #pragma once
+#include"stdafx.h"
 class World;
 
 class Organism
@@ -13,7 +14,7 @@ public:
 	/*Organizm::Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)*/
 
 	virtual void action() = 0;
-	virtual void collision() = 0;
+	virtual status collision(Organism * attacker) = 0;
 	virtual void draw() = 0;
 	
 	int getX();

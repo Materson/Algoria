@@ -4,6 +4,7 @@
 #include"Wolf.h"
 #include"Sheep.h"
 #include"config.h"
+#include"stdafx.h"
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
@@ -165,20 +166,6 @@ void World::delOrganism(int x, int y)
 	map[x][y] = NULL;
 }
 
-void World::battle(Organism *attacker, int x, int y)
-{
-	Organism *defender = map[x][y];
-
-	if (attacker->getActivity() < defender->getActivity())
-	{
-		delOrganism(attacker->getPrev_x(), attacker->getPrev_y());
-	}
-	else
-	{
-		delOrganism(defender->getPrev_x(), defender->getPrev_y());
-	}
-}
-
 void World::setOrder()
 {
 	int k = 0;
@@ -214,4 +201,18 @@ int World::sortOrder(const void *or1, const void *or2)
 	}
 
 	return 0;
+}
+
+void World::collision(Organism *attacker, int x, int y)
+{
+	status stat = map[x][y]->collision(attacker);
+	if (stat == AT_WIN)
+	{
+		delOrganism(x, y);
+		moveOrganism(attacker->getX(), attacker->getY(), x, y);
+	}
+	else if(stat == DEF_WIN)
+	{
+		delOrganism(attacker->getX(), attacker->getY());
+	}
 }

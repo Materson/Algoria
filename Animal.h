@@ -1,5 +1,6 @@
 #pragma once
 #include "Organism.h"
+#include"stdafx.h"
 
 class Animal : public Organism
 {
@@ -9,7 +10,7 @@ public:
 
 	void action();
 
-	void collision();
+	status collision(Organism *attacker);
 
 	void draw();
 };

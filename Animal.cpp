@@ -2,6 +2,7 @@
 #include "Animal.h"
 #include"World.h"
 #include"config.h"
+#include"stdafx.h"
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
@@ -18,46 +19,52 @@ void Animal::action()
 	int dy[] = { MOVE_RANGE_Y };
 	bool findPlace = false;
 	int range = sizeof(dx) / sizeof(dx[0]);
+	int move;
 	while (range-- > 0 && !findPlace)
 	{
-		int move = rand() % (sizeof(dx) / sizeof(dx[0]));
+		move = rand() % (sizeof(dx) / sizeof(dx[0]));
 		if (x + dx[move] >= world->getWidth() || y + dy[move] >= world->getHeight()
 			|| x + dx[move] < 0 || y + dy[move] < 0)
 			continue;
 
 		findPlace = true;
-		x += dx[move];
-		y += dy[move];
+	}
+
+	if (world->checkPlace(x + dx[move], y + dy[move]) == ' ')
+	{
+		world->moveOrganism(x, y, x + dx[move], y + dy[move]);
+	}
+	else
+	{
+		world->collision(this, x + dx[move], y + dy[move]);
 	}
 }
 
-void Animal::collision()
+status Animal::collision(Organism *attacker)
 {
-	char place = world->checkPlace(x, y);
 
-	if (place == ' ')
+	if (attacker->getImage() == image)
 	{
-		//move
-		world->moveOrganism(prev_x, prev_y, x, y);
-	}
-	else if (place == image)
-	{
-		//rozmnazanie	
-		x = prev_x;
-		y = prev_y;
-
+		//copulate
 		int new_x = x;
 		int new_y = y;
 		if (world->findFreeSpace(&new_x, &new_y, FIND_RANGE))
 		{
 			world->addOrganism(image, new_x, new_y);
+			return COPULATE;
 		}
 	}
 	else
 	{
 		//attack
-		world->battle(this, x, y);
-
+		if (attacker->getActivity() < activity)
+		{
+			return DEF_WIN;
+		}
+		else
+		{
+			return AT_WIN;
+		}
 	}
 }
 

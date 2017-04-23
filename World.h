@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 class Organism;
 using namespace std;
 
@@ -36,11 +37,13 @@ public:
 
 	void fillWorld();
 	
-	void battle(Organism *attacker, int x, int y);
+	void battle(Organism *attacker, Organism *defender);
 
 	void delOrganism(int x, int y);
 
 	void setOrder();
 
 	static int sortOrder(const void *or1, const void *or2);
+
+	void collision(Organism *attacker, int x, int y);
 };
