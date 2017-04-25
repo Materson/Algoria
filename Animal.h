@@ -10,7 +10,7 @@ public:
 
 	void action();
 
-	status collision(Organism *attacker);
+	void collision(Organism *attacker);
 
 	void draw();
 };

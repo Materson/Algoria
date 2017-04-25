@@ -239,14 +239,5 @@ int World::sortOrder(const void *or1, const void *or2)
 
 void World::collision(Organism *attacker, int x, int y)
 {
-	status stat = map[x][y]->collision(attacker);
-	if (stat == AT_WIN)
-	{
-		delOrganism(x, y);
-		moveOrganism(attacker, x, y);
-	}
-	else if(stat == DEF_WIN)
-	{
-		delOrganism(attacker->getX(), attacker->getY());
-	}
+	map[x][y]->collision(attacker);
 }

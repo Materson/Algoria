@@ -51,7 +51,7 @@ void Animal::action()
 	}
 }
 
-status Animal::collision(Organism *attacker)
+void Animal::collision(Organism *attacker)
 {
 
 	if (attacker->getImage() == image)
@@ -62,7 +62,6 @@ status Animal::collision(Organism *attacker)
 		if (world->findFreeSpace(&new_x, &new_y, FIND_RANGE))
 		{
 			world->addOrganism(image, new_x, new_y);
-			return COPULATE;
 		}
 	}
 	else
@@ -70,11 +69,12 @@ status Animal::collision(Organism *attacker)
 		//attack
 		if (attacker->getActivity() < activity)
 		{
-			return DEF_WIN;
+			world->delOrganism(attacker->getX(), attacker->getY());
 		}
 		else
 		{
-			return AT_WIN;
+			world->delOrganism(x, y);
+			world->moveOrganism(attacker, x, y);
 		}
 	}
 }
