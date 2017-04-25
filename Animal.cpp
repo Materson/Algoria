@@ -15,40 +15,16 @@ using namespace std;
 void Animal::action()
 {
 	old++;
-	int dx[] = { MOVE_RANGE_X };
-	int dy[] = { MOVE_RANGE_Y };
-	bool findPlace = false;
-	int range = sizeof(dx) / sizeof(dx[0]);
-	int *move = new int[range];
-	int place;
-	for (int i = 0; i < range; i++)
+	int move_x, move_y;
+	randMove(&move_x, &move_y);
+
+	if (world->checkPlace(x + move_x, y + move_y) == ' ')
 	{
-		move[i] = i;
-	}
-
-	while (range >= 0 && !findPlace)
-	{
-		place = world->randInt(0, range--);
-		if (x + dx[move[place]] >= world->getWidth() || y + dy[move[place]] >= world->getHeight()
-			|| x + dx[move[place]] < 0 || y + dy[move[place]] < 0)
-
-		{
-			move[place] = move[range];
-			continue;
-		}
-
-		findPlace = true;
-		place = move[place];
-		delete(move);
-	}
-
-	if (world->checkPlace(x + dx[place], y + dy[place]) == ' ')
-	{
-		world->moveOrganism(this, x + dx[place], y + dy[place]);
+		world->moveOrganism(this, x + move_x, y + move_y);
 	}
 	else
 	{
-		world->collision(this, x + dx[place], y + dy[place]);
+		world->collision(this, x + move_x, y + move_y);
 	}
 }
 
@@ -84,4 +60,36 @@ void Animal::collision(Organism *attacker)
 void Animal::draw()
 {
 	cout << image;
+}
+
+void Animal::randMove(int *move_x, int *move_y)
+{
+	int dx[] = { MOVE_RANGE_X };
+	int dy[] = { MOVE_RANGE_Y };
+	bool findPlace = false;
+	int range = sizeof(dx) / sizeof(dx[0]);
+	int *move = new int[range];
+	int place;
+	for (int i = 0; i < range; i++)
+	{
+		move[i] = i;
+	}
+
+	while (range >= 0 && !findPlace)
+	{
+		place = world->randInt(0, range--);
+		if (x + dx[move[place]] >= world->getWidth() || y + dy[move[place]] >= world->getHeight()
+			|| x + dx[move[place]] < 0 || y + dy[move[place]] < 0)
+
+		{
+			move[place] = move[range];
+			continue;
+		}
+
+		findPlace = true;
+		place = move[place];
+		*move_x = dx[place];
+		*move_y = dy[place];
+		delete(move);
+	}
 }
