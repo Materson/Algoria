@@ -36,6 +36,9 @@
     <ClCompile Include="Sheep.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Fox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

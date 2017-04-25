@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algoria.cpp" />
+    <ClCompile Include="Fox.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="Organism.cpp" />
     <ClCompile Include="Sheep.cpp" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h" />
+    <ClInclude Include="Fox.h" />
     <ClInclude Include="Human.h" />
     <ClInclude Include="Organism.h" />
     <ClInclude Include="Sheep.h" />
