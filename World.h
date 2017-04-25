@@ -40,7 +40,7 @@ public:
 	
 	void battle(Organism *attacker, Organism *defender);
 
-	void delOrganism(int x, int y);
+	void delOrganism(Organism *org);
 
 	void setOrder();
 

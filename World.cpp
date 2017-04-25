@@ -171,18 +171,19 @@ void World::fillWorld()
 
 }
 
-void World::delOrganism(int x, int y)
+void World::delOrganism(Organism *org)
 {
+	if(map[org->getX()][org->getY()] == org)
+		map[org->getX()][org->getY()] = NULL;
 	for (int i = 0; i < orgNum; i++)
 	{
-		if (order[i] == map[x][y])
+		if (order[i] == org)
 		{
+			delete[](org);
 			order[i] = NULL;
 			break;
 		}
 	}
-	delete(map[x][y]);
-	map[x][y] = NULL;
 	orgNum--;
 }
 

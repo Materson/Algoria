@@ -39,6 +39,7 @@ void Animal::action()
 
 		findPlace = true;
 		place = move[place];
+		delete(move);
 	}
 
 	if (world->checkPlace(x + dx[place], y + dy[place]) == ' ')
@@ -69,12 +70,13 @@ void Animal::collision(Organism *attacker)
 		//attack
 		if (attacker->getActivity() < activity)
 		{
-			world->delOrganism(attacker->getX(), attacker->getY());
+			world->delOrganism(attacker);
 		}
 		else
 		{
-			world->delOrganism(x, y);
-			world->moveOrganism(attacker, x, y);
+			int a = x, b = y;
+			world->moveOrganism(attacker, a, b);
+			world->delOrganism(this);
 		}
 	}
 }
