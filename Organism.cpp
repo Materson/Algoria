@@ -61,4 +61,8 @@ int Organism::getOld()
 {
 	return old;
 }
-	
+
+int Organism::getPower()
+{
+	return power;
+}
