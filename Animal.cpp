@@ -12,11 +12,13 @@ using namespace std;
 //Zwierze::Zwierze(int sila, int inicjatywa, world *world, int x, int y)
 //	:Organizm(sila, inicjatywa, world, x, y) {}
 
-void Animal::action()
+void Animal::action(int move_x = 0, int move_y = 0)
 {
 	old++;
-	int move_x, move_y;
-	randMove(&move_x, &move_y);
+	if (move_x == 0 && move_y == 0)
+	{
+		randMove(&move_x, &move_y);
+	}
 
 	if (world->checkPlace(x + move_x, y + move_y) == ' ')
 	{
