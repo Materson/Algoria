@@ -5,6 +5,7 @@
 #include"Sheep.h"
 #include"Fox.h"
 #include"Turtle.h"
+#include"Antelope.h"
 #include"config.h"
 #include"stdafx.h"
 #include<iostream>
@@ -17,10 +18,10 @@ World::World(int width, int height)
 	:width(width), height(height)
 {
 	srand(time(NULL));
-	map = new Organism**[height];
-	for (int i = 0; i < height; i++)
+	map = new Organism**[width];
+	for (int i = 0; i < width; i++)
 	{
-		map[i] = new Organism*[width];
+		map[i] = new Organism*[height];
 	}
 
 	fillWorld();
@@ -160,6 +161,9 @@ void World::addOrganism(char image, int x, int y)
 	case 't':
 		map[x][y] = new Turtle(T_POWER, T_ACTIVITY, this, x, y);
 		break;
+	case 'a':
+		map[x][y] = new Antelope(A_POWER, A_ACTIVITY, this, x, y);
+		break;
 	default:
 		map[x][y] = NULL;
 		orgNum--;
@@ -217,16 +221,6 @@ void World::setOrder()
 	}
 
 	qsort(order, height*width, sizeof(Organism*), sortOrder);
-	for (int i = 0; i < orgNum; i++)
-	{
-		cout << i << " ";
-
-		if (order[i] == NULL)
-			cout << "NULL";
-		else
-			order[i]->draw();
-		cout << endl;
-	}
 }
 
 int World::sortOrder(const void *or1, const void *or2)
