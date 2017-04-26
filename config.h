@@ -1,6 +1,6 @@
 #pragma once
-#define ORGANISM_RATIO "Hswa"
-#define FILL_RATIO 10
+#define ORGANISM_RATIO "swat"
+#define FILL_RATIO 5
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
 #define MOVE_RANGE_Y -1, -1, 0, 1, 1, 1, 0, -1
@@ -19,3 +19,6 @@
 #define A_ACTIVITY 4
 #define H_POWER 5
 #define H_ACTIVITY 4
+
+#define PLANT_RATIO 4
+#define PLANT_RANGE 1

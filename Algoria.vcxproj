@@ -150,6 +150,7 @@
     <ClCompile Include="Fox.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="Organism.cpp" />
+    <ClCompile Include="Plant.cpp" />
     <ClCompile Include="Sheep.cpp" />
     <ClCompile Include="Turtle.cpp" />
     <ClCompile Include="Wolf.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Fox.h" />
     <ClInclude Include="Human.h" />
     <ClInclude Include="Organism.h" />
+    <ClInclude Include="Plant.h" />
     <ClInclude Include="Sheep.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Turtle.h" />
