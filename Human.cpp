@@ -10,13 +10,9 @@
 #define RIGHT 77
 
 Human::Human(int power, int activity, World *world, int x, int y)
+	:Animal(power, activity, world, x, y)
 {
-	this->power = power;
-	this->activity = activity;
-	this->world = world;
-	this->x = x;
-	this->y = y;
-	this->image = 'H';
+	image = 'H';
 }
 
 Human::~Human()

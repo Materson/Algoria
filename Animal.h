@@ -6,11 +6,9 @@ class Animal : public Organism
 {
 public:
 
-	/*Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y);*/
+	Animal(int power, int activity, World *world, int x, int y);
 
 	void action(int move_dx = 0, int move_dy = 0);
 
 	void collision(Organism *attacker);
-
-	void draw();
 };

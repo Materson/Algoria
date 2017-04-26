@@ -6,8 +6,14 @@
 #include<iostream>
 using namespace std;
 
-//Zwierze::Zwierze(int sila, int inicjatywa, world *world, int x, int y)
-//	:Organizm(sila, inicjatywa, world, x, y) {}
+Animal::Animal(int power, int activity, World *world, int x, int y)
+{
+	this->power = power;
+	this->activity = activity;
+	this->world = world;
+	this->x = x;
+	this->y = y;
+}
 
 
 void Animal::action(int move_dx, int move_dy)
@@ -58,9 +64,4 @@ void Animal::collision(Organism *attacker)
 			world->delOrganism(this);
 		}
 	}
-}
-
-void Animal::draw()
-{
-	cout << image;
 }

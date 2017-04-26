@@ -4,9 +4,9 @@
 class Plant : public Organism
 {
 public:
-	void action();
+	Plant(int power, World *world, int x, int y);
+
+	void action(int move_dx = 0, int move_dy = 0);
 
 	void collision(Organism *attacker);
-
-	void draw();
 };
