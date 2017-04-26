@@ -2,12 +2,12 @@
 #include"Animal.h"
 #include"World.h"
 #include<conio.h>
-#include<iostream>
 
 #define UP 72
 #define DOWN 80
 #define LEFT 75
 #define RIGHT 77
+#define ESC 27
 
 Human::Human(int power, int activity, World *world, int x, int y)
 	:Animal(power, activity, world, x, y)
@@ -17,9 +17,6 @@ Human::Human(int power, int activity, World *world, int x, int y)
 
 Human::~Human()
 {
-	int a;
-	std::cout << "Czlowiek umiera";
-	//std::cin >> a;
 	world->humanDie();
 }
 
@@ -45,6 +42,9 @@ void Human::action(int dx, int dy)
 			break;
 		case LEFT:
 			Animal::action(-1, 0);
+			break;
+		case ESC:
+			world->endGame();
 			break;
 		default:
 			move = false;

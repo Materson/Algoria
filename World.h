@@ -8,7 +8,7 @@ class World
 private:
 	int height, width;
 	int orgNum = 0;
-	bool human;
+	bool human, play;
 	Organism ***map;
 	Organism **order;
 
@@ -38,8 +38,6 @@ public:
 	void addOrganism(char image, int x, int y);
 
 	void fillWorld();
-	
-	void battle(Organism *attacker, Organism *defender);
 
 	void delOrganism(Organism *org);
 
@@ -54,4 +52,8 @@ public:
 	void humanDie();
 
 	bool humanAlive();
+
+	bool game();
+
+	void endGame();
 };

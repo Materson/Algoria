@@ -10,6 +10,7 @@
 #include"Grass.h"
 #include"Milk.h"
 #include"Guarana.h"
+#include"Berry.h"
 #include"config.h"
 #include"stdafx.h"
 #include<iostream>
@@ -158,7 +159,7 @@ void World::addOrganism(char image, int x, int y)
 		map[x][y] = new Wolf(W_POWER, W_ACTIVITY, this, x, y);
 		break;
 	case 's':
-		map[x][y] = new Sheep(B_POWER, B_ACTIVITY, this, x, y);
+		map[x][y] = new Sheep(S_POWER, S_ACTIVITY, this, x, y);
 		break;
 	case 'f':
 		map[x][y] = new Fox(F_POWER, F_ACTIVITY, this, x, y);
@@ -180,6 +181,9 @@ void World::addOrganism(char image, int x, int y)
 		break;
 	case 'G':
 		map[x][y] = new Guarana(GU_POWER, this, x, y);
+		break;
+	case 'b':
+		map[x][y] = new Berry(B_POWER, this, x, y);
 		break;
 	default:
 		map[x][y] = NULL;
@@ -306,4 +310,14 @@ void World::humanDie()
 bool World::humanAlive()
 {
 	return human;
+}
+
+bool World::game()
+{
+	return play;
+}
+
+void World::endGame()
+{
+	play = false;
 }
