@@ -1,6 +1,6 @@
 #pragma once
-#define ORGANISM_RATIO "fsw"
-#define FILL_RATIO 3
+#define ORGANISM_RATIO "fw"
+#define FILL_RATIO 1
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
 #define MOVE_RANGE_Y -1, -1, 0, 1, 1, 1, 0, -1
@@ -13,3 +13,5 @@
 #define B_ACTIVITY 4
 #define F_POWER 3
 #define F_ACTIVITY 7
+#define T_POWER 2
+#define T_ACTIVITY 1

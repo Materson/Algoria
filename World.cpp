@@ -4,6 +4,7 @@
 #include"Wolf.h"
 #include"Sheep.h"
 #include"Fox.h"
+#include"Turtle.h"
 #include"config.h"
 #include"stdafx.h"
 #include<iostream>
@@ -149,6 +150,13 @@ void World::addOrganism(char image, int x, int y)
 		break;
 	case 'f':
 		map[x][y] = new Fox(F_POWER, F_ACTIVITY, this, x, y);
+		break;
+	case 't':
+		map[x][y] = new Turtle(T_POWER, T_ACTIVITY, this, x, y);
+		break;
+	default:
+		map[x][y] = NULL;
+		orgNum--;
 		break;
 	}
 	orgNum++;

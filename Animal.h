@@ -8,7 +8,7 @@ public:
 
 	/*Zwierze(int sila, int inicjatywa, Swiat *swiat, int x, int y);*/
 
-	void action(int move_x, int move_y);
+	void action(int move_x = 0, int move_y = 0);
 
 	void collision(Organism *attacker);
 
