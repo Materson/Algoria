@@ -12,20 +12,20 @@ using namespace std;
 //Zwierze::Zwierze(int sila, int inicjatywa, world *world, int x, int y)
 //	:Organizm(sila, inicjatywa, world, x, y) {}
 
-void Animal::action(int move_x, int move_y)
+void Animal::action(int move_dx, int move_dy)
 {
-	if (move_x == 0 && move_y == 0)
+	if (move_dx == 0 && move_dy == 0)
 	{
-		randMove(&move_x, &move_y, 1);
+		randMove(&move_dx, &move_dy, 1);
 	}
 
-	if (world->checkPlace(x + move_x, y + move_y) == ' ')
+	if (world->checkPlace(x + move_dx, y + move_dy) == ' ')
 	{
-		world->moveOrganism(this, x + move_x, y + move_y);
+		world->moveOrganism(this, x + move_dx, y + move_dy);
 	}
 	else
 	{
-		world->collision(this, x + move_x, y + move_y);
+		world->collision(this, x + move_dx, y + move_dy);
 	}
 }
 
@@ -72,12 +72,12 @@ void Animal::randMove(int *move_x, int *move_y, int range)
 	int move_num = (sizeof(tmpx) / sizeof(tmpx[0]))*range;
 	int *dx = new int[move_num];
 	int *dy = new int[move_num];
-	for (int i = 1; i <= range; i++)
+	for (int i = 0; i < range; i++)
 	{
 		for (int j = 0; j < move_num / range; j++)
 		{
-			dx[j*i] = tmpx[j] * i;
-			dy[j*i] = tmpy[j] * i;
+			dx[(move_num/range)*i + j] = tmpx[j] * (i+1);
+			dy[(move_num / range)*i + j] = tmpy[j] * (i+1);
 		}
 	}
 
@@ -91,9 +91,7 @@ void Animal::randMove(int *move_x, int *move_y, int range)
 	while (move_num > 0 && !findPlace)
 	{
 		place = world->randInt(0, move_num--);
-		if (x + dx[move[place]] >= world->getWidth() || y + dy[move[place]] >= world->getHeight()
-			|| x + dx[move[place]] < 0 || y + dy[move[place]] < 0)
-
+		if (world->checkPlace(x + dx[move[place]],y + dy[move[place]]) == '!')
 		{
 			move[place] = move[move_num];
 			continue;
