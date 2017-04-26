@@ -6,5 +6,5 @@ class Fox : public Animal
 public:
 	Fox(int power, int activity, World *world, int x, int y);
 
-	void action();
+	void action(int dx=0, int dy=0) override;
 };

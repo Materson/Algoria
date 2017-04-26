@@ -14,7 +14,7 @@ Fox::Fox(int power, int activity, World *world, int x, int y)
 	image = 'f';
 }
 
-void Fox::action()
+void Fox::action(int a, int b)
 {
 	int dx[] = { MOVE_RANGE_X };
 	int dy[] = { MOVE_RANGE_Y };
