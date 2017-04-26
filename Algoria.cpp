@@ -15,6 +15,7 @@ int main()
 			algoria->nextTurn();
 			algoria->drawWorld();
 		}
+		if (!algoria->game()) break;
 	}
 
     return 0;
