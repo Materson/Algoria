@@ -49,6 +49,7 @@ void Organism::setPrev_y(int y)
 
 char Organism::getImage()
 {
+
 	return image;
 }
 

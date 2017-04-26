@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	World *map= new World(5, 5);
+	World *map= new World(1, 8);
 	//map->drawWorld();
 	char z;
 	cin >> z;
