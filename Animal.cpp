@@ -19,13 +19,17 @@ void Animal::action(int move_dx, int move_dy)
 		randMove(&move_dx, &move_dy, 1);
 	}
 
-	if (world->checkPlace(x + move_dx, y + move_dy) == ' ')
+	if (world->checkPlace(x + move_dx, y + move_dy) != '!')
 	{
-		world->moveOrganism(this, x + move_dx, y + move_dy);
-	}
-	else
-	{
-		world->collision(this, x + move_dx, y + move_dy);
+		if (world->checkPlace(x + move_dx, y + move_dy) == ' ')
+		{
+			world->moveOrganism(this, x + move_dx, y + move_dy);
+		}
+		else
+		{
+			world->collision(this, x + move_dx, y + move_dy);
+		}
+
 	}
 }
 
