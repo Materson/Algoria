@@ -20,15 +20,11 @@ public:
 	
 	int getX();
 	int getY();
-	int getPrev_x();
-	int getPrev_y();
 	int getActivity();
 	int getOld();
 	int getPower();
 	void setX(int x);
 	void setY(int y);
-	void setPrev_x(int prev_x);
-	void setPrev_y(int prev_y);
 	char getImage();
 	void increaseOld();
 	void randMove(int *move_x, int *move_y, int range);

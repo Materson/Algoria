@@ -23,15 +23,6 @@ int Organism::getY()
 {
 	return y;
 }
-int Organism::getPrev_x()
-{
-	return prev_x;
-}
-
-int Organism::getPrev_y()
-{
-	return prev_y;
-}
 
 void Organism::setX(int x)
 {
@@ -41,16 +32,6 @@ void Organism::setX(int x)
 void Organism::setY(int y)
 {
 	this->y = y;
-}
-
-void Organism::setPrev_x(int x)
-{
-	this->prev_x = x;
-}
-
-void Organism::setPrev_y(int y)
-{
-	this->prev_y = y;
 }
 
 char Organism::getImage()
