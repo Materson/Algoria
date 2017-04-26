@@ -13,6 +13,4 @@ public:
 	void collision(Organism *attacker);
 
 	void draw();
-
-	void randMove(int *move_x, int *move_y, int range);
 };
