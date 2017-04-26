@@ -1,5 +1,5 @@
 #pragma once
-#define ORGANISM_RATIO "swat"
+#define ORGANISM_RATIO "swatgHG"
 #define FILL_RATIO 5
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
@@ -20,5 +20,11 @@
 #define H_POWER 5
 #define H_ACTIVITY 4
 
-#define PLANT_RATIO 4
+#define PLANT_RATIO 2
 #define PLANT_RANGE 1
+
+#define G_POWER 0
+#define M_POWER 0
+#define MILK_TRIES 3
+#define GU_POWER 0
+#define GU_STRENGTH 3

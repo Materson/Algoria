@@ -23,6 +23,7 @@ public:
 	int getActivity();
 	int getOld();
 	int getPower();
+	void setPower(int x);
 	void setX(int x);
 	void setY(int y);
 	char getImage();

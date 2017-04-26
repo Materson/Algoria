@@ -66,6 +66,11 @@ int Organism::getPower()
 	return power;
 }
 
+void Organism::setPower(int x)
+{
+	power = x;
+}
+
 void Organism::randMove(int *move_x, int *move_y, int range)
 {
 	int tmpx[] = { MOVE_RANGE_X };
