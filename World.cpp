@@ -11,6 +11,7 @@
 #include"Milk.h"
 #include"Guarana.h"
 #include"Berry.h"
+#include"Borscht.h"
 #include"config.h"
 #include"stdafx.h"
 #include<iostream>
@@ -183,7 +184,10 @@ void World::addOrganism(char image, int x, int y)
 		map[x][y] = new Guarana(GU_POWER, this, x, y);
 		break;
 	case 'b':
-		map[x][y] = new Berry(B_POWER, this, x, y);
+		map[x][y] = new Berry(X_POWER, this, x, y);
+		break;
+	case 'X':
+		map[x][y] = new Borscht(X_POWER, this, x, y);
 		break;
 	default:
 		map[x][y] = NULL;
@@ -232,8 +236,13 @@ void World::fillWorld()
 
 }
 
-void World::delOrganism(Organism *org)
+void World::delOrganism(Organism *org, int x, int y)
 {
+	if(org == NULL)
+	{
+		org = map[x][y];
+	}
+
 	if(map[org->getX()][org->getY()] == org)
 		map[org->getX()][org->getY()] = NULL;
 	for (int i = 0; i < orgNum; i++)
@@ -294,11 +303,19 @@ void World::collision(Organism *attacker, int x, int y)
 	map[x][y]->collision(attacker);
 }
 
-int World::getOrganismPower(int x, int y)
+int World::checkOrganismPower(int x, int y)
 {
 	if (map[x][y] != NULL)
 	{
 		return map[x][y]->getPower();
+	}
+}
+
+int World::checkOrganismActivity(int x, int y)
+{
+	if (map[x][y] != NULL)
+	{
+		return map[x][y]->getActivity();
 	}
 }
 

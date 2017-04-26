@@ -1,5 +1,5 @@
 #pragma once
-#define ORGANISM_RATIO "Hb"
+#define ORGANISM_RATIO "HbX"
 #define FILL_RATIO 2
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
@@ -29,3 +29,4 @@
 #define GU_POWER 0
 #define GU_STRENGTH 3
 #define B_POWER 99
+#define X_POWER 10

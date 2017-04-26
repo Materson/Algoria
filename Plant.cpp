@@ -8,6 +8,7 @@ Plant::Plant(int power, World *world, int x, int y)
 	this->world = world;
 	this->x = x;
 	this->y = y;
+	activity = 0;
 }
 
 void Plant::action(int move_dx, int move_dy)
