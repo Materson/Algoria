@@ -7,6 +7,7 @@
 #include"Turtle.h"
 #include"Antelope.h"
 #include"Human.h"
+#include"Grass.h"
 #include"config.h"
 #include"stdafx.h"
 #include<iostream>
@@ -168,6 +169,9 @@ void World::addOrganism(char image, int x, int y)
 		break;
 	case 'H':
 		map[x][y] = new Human(H_POWER, H_ACTIVITY, this, x, y);
+		break;
+	case 'g':
+		map[x][y] = new Grass(G_POWER, this, x, y);
 		break;
 	default:
 		map[x][y] = NULL;
