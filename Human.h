@@ -12,4 +12,8 @@ public:
 	~Human();
 
 	void action(int dx, int dy);
+
+	void collistion(Organism *attacker);
+
+	void fire(int dx = 0, int dy = 0);
 };

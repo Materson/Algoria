@@ -1,5 +1,5 @@
 #pragma once
-#define ORGANISM_RATIO "HbX"
+#define ORGANISM_RATIO "HwbX"
 #define FILL_RATIO 2
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
@@ -19,6 +19,7 @@
 #define A_ACTIVITY 4
 #define H_POWER 5
 #define H_ACTIVITY 4
+#define SKILL_DURATION 5
 
 #define PLANT_RATIO 2
 #define PLANT_RANGE 1
