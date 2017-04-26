@@ -12,6 +12,7 @@ protected:
 	int skill = 0;
 public:
 	/*Organizm::Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)*/
+	virtual ~Organism();
 
 	virtual void action(int move_x = 0, int move_y = 0) = 0;
 	virtual void collision(Organism * attacker) = 0;

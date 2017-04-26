@@ -8,6 +8,7 @@ class World
 private:
 	int height, width;
 	int orgNum = 0;
+	bool human;
 	Organism ***map;
 	Organism **order;
 
@@ -49,4 +50,8 @@ public:
 	void collision(Organism *attacker, int x, int y);
 
 	int getOrganismPower(int x, int y);
+
+	void humanDie();
+
+	bool humanAlive();
 };

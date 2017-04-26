@@ -24,7 +24,7 @@ World::World(int width, int height)
 	{
 		map[i] = new Organism*[height];
 	}
-
+	human = false;
 	fillWorld();
 	drawWorld();
 	order = new Organism*[width*height];
@@ -180,7 +180,6 @@ void World::addOrganism(char image, int x, int y)
 void World::fillWorld()
 {
 	string organism = ORGANISM_RATIO;
-	bool human = false;
 	int h_x = -1, h_y = -1;
 	for (int i = 0; i < organism.size(); i++)
 	{
@@ -285,4 +284,14 @@ int World::getOrganismPower(int x, int y)
 	{
 		return map[x][y]->getPower();
 	}
+}
+
+void World::humanDie()
+{
+	human = false;
+}
+
+bool World::humanAlive()
+{
+	return human;
 }

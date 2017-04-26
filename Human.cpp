@@ -2,6 +2,7 @@
 #include"Animal.h"
 #include"World.h"
 #include<conio.h>
+#include<iostream>
 
 #define UP 72
 #define DOWN 80
@@ -18,6 +19,14 @@ Human::Human(int power, int activity, World *world, int x, int y)
 	this->prev_x = x;
 	this->prev_y = y;
 	this->image = 'H';
+}
+
+Human::~Human()
+{
+	int a;
+	std::cout << "Czlowiek umiera";
+	//std::cin >> a;
+	world->humanDie();
 }
 
 void Human::action(int dx, int dy)

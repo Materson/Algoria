@@ -8,6 +8,10 @@
 //		skill = 0;
 //	}
 
+Organism::~Organism()
+{
+}
+
 int Organism::getX()
 {
 	return x;

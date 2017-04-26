@@ -9,5 +9,7 @@ private:
 public:
 	Human(int sila, int activity, World *world, int x, int y);
 
+	~Human();
+
 	void action(int dx, int dy);
 };
