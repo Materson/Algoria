@@ -1,16 +1,20 @@
 #include<iostream>
 #include "World.cpp"
-#include"Animal.h"
+#include<conio.h>
+#define ESC 27
 using namespace std;
 
 int main()
 {
-	World *map= new World(4, 6);
-	//map->drawWorld();
-	while (1)
+	World *algoria= new World(10, 10);
+	int zn;
+	while (algoria->humanAlive() || ((zn=getch()) != ESC))
 	{
-		map->nextTurn();
-		map->drawWorld();
+		if (algoria->humanAlive() || zn == ' ')
+		{
+			algoria->nextTurn();
+			algoria->drawWorld();
+		}
 	}
 
     return 0;
