@@ -52,6 +52,11 @@ char Organism::getImage()
 	return image;
 }
 
+void Organism::increaseOld()
+{
+	old++;
+}
+
 int Organism::getActivity()
 {
 	return activity;

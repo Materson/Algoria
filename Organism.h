@@ -29,4 +29,5 @@ public:
 	void setPrev_x(int prev_x);
 	void setPrev_y(int prev_y);
 	char getImage();
+	void increaseOld();
 };

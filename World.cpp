@@ -53,6 +53,12 @@ void World::nextTurn()
 	int num = orgNum;
 	for (int i = 0; i < num; i++)
 	{
+		if (order[i] != NULL)
+			order[i]->increaseOld();
+	}
+
+	for (int i = 0; i < num; i++)
+	{
 		if(order[i] != NULL)
 			order[i]->action();
 	}
