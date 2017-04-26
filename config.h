@@ -1,5 +1,5 @@
 #pragma once
-#define ORGANISM_RATIO "wa"
+#define ORGANISM_RATIO "Ha"
 #define FILL_RATIO 4
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
@@ -17,3 +17,5 @@
 #define T_ACTIVITY 1
 #define A_POWER 4
 #define A_ACTIVITY 4
+#define H_POWER 5
+#define H_ACTIVITY 4

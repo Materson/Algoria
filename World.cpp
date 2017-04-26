@@ -6,6 +6,7 @@
 #include"Fox.h"
 #include"Turtle.h"
 #include"Antelope.h"
+#include"Human.h"
 #include"config.h"
 #include"stdafx.h"
 #include<iostream>
@@ -165,6 +166,9 @@ void World::addOrganism(char image, int x, int y)
 	case 'a':
 		map[x][y] = new Antelope(A_POWER, A_ACTIVITY, this, x, y);
 		break;
+	case 'H':
+		map[x][y] = new Human(H_POWER, H_ACTIVITY, this, x, y);
+		break;
 	default:
 		map[x][y] = NULL;
 		orgNum--;
@@ -176,10 +180,29 @@ void World::addOrganism(char image, int x, int y)
 void World::fillWorld()
 {
 	string organism = ORGANISM_RATIO;
+	bool human = false;
+	int h_x = -1, h_y = -1;
+	for (int i = 0; i < organism.size(); i++)
+	{
+		if (organism[i] == 'H')
+		{
+			if (!human)
+			{
+				h_x = randInt(0, width);
+				h_y = randInt(0, height);
+				addOrganism('H', h_x, h_y);
+				human = true;
+			}
+			organism[i] = ' ';
+		}
+	}
+
 	for (int i = 0; i < height; i++)
 	{
 		for (int j = 0; j < width; j++)
 		{
+			if (i == h_y && j == h_x)
+				continue;
 			if (randInt(1, 100) <= FILL_RATIO*10)
 			{
 				addOrganism(organism[randInt(1, 100) % organism.size()], j, i);
@@ -202,7 +225,7 @@ void World::delOrganism(Organism *org)
 	{
 		if (order[i] == org)
 		{
-			delete[](org);
+			delete(org);
 			order[i] = NULL;
 			break;
 		}

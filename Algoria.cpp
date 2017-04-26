@@ -5,15 +5,12 @@ using namespace std;
 
 int main()
 {
-	World *map= new World(1, 8);
+	World *map= new World(4, 6);
 	//map->drawWorld();
-	char z;
-	cin >> z;
-	while (z == 'n')
+	while (1)
 	{
 		map->nextTurn();
 		map->drawWorld();
-		cin >> z;
 	}
 
     return 0;
