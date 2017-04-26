@@ -1,6 +1,7 @@
 #include"Organism.h"
 #include"World.h"
 #include"config.h"
+#include<iostream>
 
 //Organizm::Organizm(int sila, int inicjatywa, Swiat *swiat, int x, int y)
 //	:sila(sila), inicjatywa(inicjatywa), swiat(swiat), x(x), y(y), prev_x(x), prev_y(y)
@@ -12,6 +13,11 @@
 
 Organism::~Organism()
 {
+}
+
+void Organism::draw()
+{
+	std::cout << image;
 }
 
 int Organism::getX()

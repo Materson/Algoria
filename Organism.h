@@ -16,8 +16,8 @@ public:
 
 	virtual void action(int move_x = 0, int move_y = 0) = 0;
 	virtual void collision(Organism * attacker) = 0;
-	virtual void draw() = 0;
-	
+
+	void draw();
 	int getX();
 	int getY();
 	int getActivity();
