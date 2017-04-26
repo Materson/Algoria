@@ -14,7 +14,6 @@ using namespace std;
 
 void Animal::action(int move_x, int move_y)
 {
-	old++;
 	if (move_x == 0 && move_y == 0)
 	{
 		randMove(&move_x, &move_y, 1);
@@ -68,21 +67,22 @@ void Animal::randMove(int *move_x, int *move_y, int range)
 {
 	int dx[] = { MOVE_RANGE_X };
 	int dy[] = { MOVE_RANGE_Y };
+
 	bool findPlace = false;
 	int move_num = (sizeof(dx) / sizeof(dx[0]))*range;
 	int *move = new int[move_num];
 	int place;
-	for (int j = 1; j <= range; j++)
+	for (int j = 0; j < range; j++)
 	{
-		for (int i = 0; i < move_num/range; i++)
+		for (int i = j*(move_num/range); i < (j+1)*(move_num/range); i++)
 		{
-			move[i] = i*j;
+			move[i] = i*(j+1);
 		}
 	}
 
 	while (move_num >= 0 && !findPlace)
 	{
-		place = world->randInt(0, move_num--);
+		place = world->randInt(0, --move_num);
 		if (x + dx[move[place]] >= world->getWidth() || y + dy[move[place]] >= world->getHeight()
 			|| x + dx[move[place]] < 0 || y + dy[move[place]] < 0)
 
