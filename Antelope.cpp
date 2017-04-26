@@ -37,6 +37,10 @@ void Antelope::collision(Organism *attacker)
 				Animal::collision(attacker);
 			}
 		}
+		else
+		{
+			Animal::collision(attacker);
+		}
 	}
 	else
 	{

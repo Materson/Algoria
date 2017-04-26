@@ -1,6 +1,6 @@
 #pragma once
 #define ORGANISM_RATIO "Ha"
-#define FILL_RATIO 4
+#define FILL_RATIO 10
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
 #define MOVE_RANGE_Y -1, -1, 0, 1, 1, 1, 0, -1
