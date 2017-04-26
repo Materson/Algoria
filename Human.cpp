@@ -16,8 +16,6 @@ Human::Human(int power, int activity, World *world, int x, int y)
 	this->world = world;
 	this->x = x;
 	this->y = y;
-	this->prev_x = x;
-	this->prev_y = y;
 	this->image = 'H';
 }
 

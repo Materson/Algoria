@@ -6,7 +6,7 @@ class Organism
 {
 protected:
 	int power, activity, old = 1;
-	int x, y, prev_x, prev_y;
+	int x, y;
 	char image;
 	World *world;
 	int skill = 0;
@@ -31,4 +31,5 @@ public:
 	void setPrev_y(int prev_y);
 	char getImage();
 	void increaseOld();
+	void randMove(int *move_x, int *move_y, int range);
 };
