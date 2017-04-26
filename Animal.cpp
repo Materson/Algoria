@@ -4,13 +4,11 @@
 #include"config.h"
 #include"stdafx.h"
 #include<iostream>
-#include<cstdlib>
-#include<ctime>
-#include<typeinfo>
 using namespace std;
 
 //Zwierze::Zwierze(int sila, int inicjatywa, world *world, int x, int y)
 //	:Organizm(sila, inicjatywa, world, x, y) {}
+
 
 void Animal::action(int move_dx, int move_dy)
 {
