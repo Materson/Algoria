@@ -65,24 +65,32 @@ void Animal::draw()
 
 void Animal::randMove(int *move_x, int *move_y, int range)
 {
-	int dx[] = { MOVE_RANGE_X };
-	int dy[] = { MOVE_RANGE_Y };
+	int tmpx[] = { MOVE_RANGE_X };
+	int tmpy[] = { MOVE_RANGE_Y };
 
 	bool findPlace = false;
-	int move_num = (sizeof(dx) / sizeof(dx[0]))*range;
-	int *move = new int[move_num];
-	int place;
-	for (int j = 0; j < range; j++)
+	int move_num = (sizeof(tmpx) / sizeof(tmpx[0]))*range;
+	int *dx = new int[move_num];
+	int *dy = new int[move_num];
+	for (int i = 1; i <= range; i++)
 	{
-		for (int i = j*(move_num/range); i < (j+1)*(move_num/range); i++)
+		for (int j = 0; j < move_num / range; j++)
 		{
-			move[i] = i*(j+1);
+			dx[j*i] = tmpx[j] * i;
+			dy[j*i] = tmpy[j] * i;
 		}
 	}
 
-	while (move_num >= 0 && !findPlace)
+	int place;
+	int *move = new int[move_num];
+	for (int i = 0; i < move_num; i++)
 	{
-		place = world->randInt(0, --move_num);
+		move[i] = i;
+	}
+
+	while (move_num > 0 && !findPlace)
+	{
+		place = world->randInt(0, move_num--);
 		if (x + dx[move[place]] >= world->getWidth() || y + dy[move[place]] >= world->getHeight()
 			|| x + dx[move[place]] < 0 || y + dy[move[place]] < 0)
 
@@ -96,5 +104,7 @@ void Animal::randMove(int *move_x, int *move_y, int range)
 		*move_x = dx[place];
 		*move_y = dy[place];
 	}
-		delete(move);
+	delete[](move);
+	delete[](dx);
+	delete[](dy);
 }
