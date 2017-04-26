@@ -45,7 +45,8 @@ public:
 	void setOrder();
 
 	int static sortOrder(const void *or1, const void *or2);
-	
 
 	void collision(Organism *attacker, int x, int y);
+
+	int getOrganismPower(int x, int y);
 };

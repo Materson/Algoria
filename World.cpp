@@ -3,6 +3,7 @@
 #include"Human.h"
 #include"Wolf.h"
 #include"Sheep.h"
+#include"Fox.h"
 #include"config.h"
 #include"stdafx.h"
 #include<iostream>
@@ -146,6 +147,9 @@ void World::addOrganism(char image, int x, int y)
 	case 's':
 		map[x][y] = new Sheep(B_POWER, B_ACTIVITY, this, x, y);
 		break;
+	case 'f':
+		map[x][y] = new Fox(F_POWER, F_ACTIVITY, this, x, y);
+		break;
 	}
 	orgNum++;
 }
@@ -241,4 +245,12 @@ int World::sortOrder(const void *or1, const void *or2)
 void World::collision(Organism *attacker, int x, int y)
 {
 	map[x][y]->collision(attacker);
+}
+
+int World::getOrganismPower(int x, int y)
+{
+	if (map[x][y] != NULL)
+	{
+		return map[x][y]->getPower();
+	}
 }
