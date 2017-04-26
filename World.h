@@ -39,7 +39,7 @@ public:
 
 	void fillWorld();
 
-	void delOrganism(Organism *org);
+	void delOrganism(Organism *org, int x=0, int y=0);
 
 	void setOrder();
 
@@ -47,7 +47,9 @@ public:
 
 	void collision(Organism *attacker, int x, int y);
 
-	int getOrganismPower(int x, int y);
+	int checkOrganismPower(int x, int y);
+
+	int checkOrganismActivity(int x, int y);
 
 	void humanDie();
 

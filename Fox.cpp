@@ -34,7 +34,7 @@ void Fox::action(int a, int b)
 
 		if (world->checkPlace(x + dx[move[place]], y + dy[move[place]]) != ' ')
 		{
-			if (world->getOrganismPower(x + dx[move[place]], y + dy[move[place]]) > power)
+			if (world->checkOrganismPower(x + dx[move[place]], y + dy[move[place]]) > power)
 			{
 				move[place] = move[move_num];
 				continue;
