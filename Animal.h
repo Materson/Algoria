@@ -14,5 +14,5 @@ public:
 
 	void draw();
 
-	void randMove(int *move_x, int *move_y);
+	void randMove(int *move_x, int *move_y, int range);
 };

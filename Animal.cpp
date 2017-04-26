@@ -12,12 +12,12 @@ using namespace std;
 //Zwierze::Zwierze(int sila, int inicjatywa, world *world, int x, int y)
 //	:Organizm(sila, inicjatywa, world, x, y) {}
 
-void Animal::action(int move_x = 0, int move_y = 0)
+void Animal::action(int move_x, int move_y)
 {
 	old++;
 	if (move_x == 0 && move_y == 0)
 	{
-		randMove(&move_x, &move_y);
+		randMove(&move_x, &move_y, 1);
 	}
 
 	if (world->checkPlace(x + move_x, y + move_y) == ' ')
@@ -46,7 +46,7 @@ void Animal::collision(Organism *attacker)
 	else
 	{
 		//attack
-		if (attacker->getActivity() < activity)
+		if (attacker->getPower() < power)
 		{
 			world->delOrganism(attacker);
 		}
@@ -64,27 +64,30 @@ void Animal::draw()
 	cout << image;
 }
 
-void Animal::randMove(int *move_x, int *move_y)
+void Animal::randMove(int *move_x, int *move_y, int range)
 {
 	int dx[] = { MOVE_RANGE_X };
 	int dy[] = { MOVE_RANGE_Y };
 	bool findPlace = false;
-	int range = sizeof(dx) / sizeof(dx[0]);
-	int *move = new int[range];
+	int move_num = (sizeof(dx) / sizeof(dx[0]))*range;
+	int *move = new int[move_num];
 	int place;
-	for (int i = 0; i < range; i++)
+	for (int j = 1; j <= range; j++)
 	{
-		move[i] = i;
+		for (int i = 0; i < move_num/range; i++)
+		{
+			move[i] = i*j;
+		}
 	}
 
-	while (range >= 0 && !findPlace)
+	while (move_num >= 0 && !findPlace)
 	{
-		place = world->randInt(0, range--);
+		place = world->randInt(0, move_num--);
 		if (x + dx[move[place]] >= world->getWidth() || y + dy[move[place]] >= world->getHeight()
 			|| x + dx[move[place]] < 0 || y + dy[move[place]] < 0)
 
 		{
-			move[place] = move[range];
+			move[place] = move[move_num];
 			continue;
 		}
 
@@ -92,6 +95,6 @@ void Animal::randMove(int *move_x, int *move_y)
 		place = move[place];
 		*move_x = dx[place];
 		*move_y = dy[place];
-		delete(move);
 	}
+		delete(move);
 }
