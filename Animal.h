@@ -1,6 +1,5 @@
 #pragma once
 #include "Organism.h"
-#include"stdafx.h"
 
 class Animal : public Organism
 {

@@ -2,7 +2,6 @@
 #include "Animal.h"
 #include"World.h"
 #include"config.h"
-#include"stdafx.h"
 #include<iostream>
 using namespace std;
 

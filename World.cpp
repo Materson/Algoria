@@ -13,7 +13,6 @@
 #include"Berry.h"
 #include"Borscht.h"
 #include"config.h"
-#include"stdafx.h"
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
