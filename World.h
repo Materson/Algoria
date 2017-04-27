@@ -65,4 +65,6 @@ public:
 	void addComment(string org1, string action="", string org2="");
 
 	void printComments();
+
+	void save();
 };

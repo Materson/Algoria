@@ -5,6 +5,7 @@
 #include<cstdlib>
 #include<ctime>
 #include<string>
+#include<fstream>
 using namespace std;
 
 World::World(int width, int height)
@@ -24,13 +25,20 @@ World::World(int width, int height)
 	setOrder();
 }
 
-//Swiat::~Swiat()
+//World::~World()
 //{
 //	for (int i = 0; i < height; i++)
 //	{
-//		delete[](*map);
+//		for (int j = 0; j < width; j++)
+//		{
+//			if(map[j][i] != NULL)
+//				delete(map[j][i]);
+//		}
+//		delete[](map[i]);
 //	}
 //	delete[](map);
+//	
+//	delete[](order);
 //}
 
 int World::getHeight()
@@ -348,4 +356,15 @@ void World::printComments()
 		if(comments[i] != "")
 			cout<<comments[i]<<endl;
 	}
+}
+
+void World::save()
+{
+	ofstream file("save.txt");
+	file << width << " " << height<<endl;
+	for (int i = 0; i < orgNum; i++)
+	{
+
+	}
+
 }
