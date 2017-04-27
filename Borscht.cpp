@@ -18,6 +18,7 @@ void Borscht::action(int a, int b)
 		char place = world->checkPlace(x + dx[i], y + dy[i]);
 		if (place != ' ' && place != '!' && world->checkOrganismActivity(x + dx[i], y + dy[i]) > 0)
 		{
+			world->addComment(string(1, image), "poisoned", string(1, place));
 			world->delOrganism(0, x + dx[i], y + dy[i]);
 		}
 	}
@@ -25,5 +26,6 @@ void Borscht::action(int a, int b)
 
 void Borscht::collision(Organism *attacker)
 {
+	world->addComment(string(1, image), "poisoned", string(1, attacker->getImage()));
 	world->delOrganism(attacker);
 }

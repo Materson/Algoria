@@ -25,6 +25,7 @@ void Antelope::collision(Organism *attacker)
 				int a = x, b = y;
 				Animal::action(dx - x, dy - y);
 				world->moveOrganism(attacker, a, b);
+				world->addComment(string(1, image), "run away from", string(1, attacker->getImage()));
 			}
 			else
 			{

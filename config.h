@@ -1,5 +1,5 @@
 #pragma once
-#define ORGANISM_RATIO "Hw"
+#define ORGANISM_RATIO "tH"
 #define FILL_RATIO 1
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
@@ -32,4 +32,4 @@
 #define B_POWER 99
 #define X_POWER 10
 
-#define COMMENTS_AMOUNT 4
+#define COMMENTS_AMOUNT 10

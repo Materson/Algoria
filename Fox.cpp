@@ -15,7 +15,8 @@ void Fox::action(int a, int b)
 	bool findPlace = false;
 	int move_num = (sizeof(dx) / sizeof(dx[0]));
 	int *move = new int[move_num];
-	int place;
+	int rand_int;
+	char place;
 	for (int i = 0; i < move_num; i++)
 	{
 		move[i] = i;
@@ -23,27 +24,26 @@ void Fox::action(int a, int b)
 
 	while (move_num >= 0 && !findPlace)
 	{
-		place = world->randInt(0, move_num--);
-		if (x + dx[move[place]] >= world->getWidth() || y + dy[move[place]] >= world->getHeight()
-			|| x + dx[move[place]] < 0 || y + dy[move[place]] < 0)
-
+		rand_int = world->randInt(0, move_num--);
+		place = world->checkPlace(x + dx[move[rand_int]], y + dy[move[rand_int]]);
+		if (place == '!')
 		{
-			move[place] = move[move_num];
+			move[rand_int] = move[move_num];
 			continue;
 		}
 
-		if (world->checkPlace(x + dx[move[place]], y + dy[move[place]]) != ' ')
+		if (place != ' ')
 		{
-			if (world->checkOrganismPower(x + dx[move[place]], y + dy[move[place]]) > power)
+			if (world->checkOrganismPower(x + dx[move[rand_int]], y + dy[move[rand_int]]) > power)
 			{
-				move[place] = move[move_num];
+				move[rand_int] = move[move_num];
+				world->addComment(string(1, image), "hissed", string(1,place));
 				continue;
 			}
 		}
 
 		findPlace = true;
-		place = move[place];
-		Animal::action(dx[place], dy[place]);
+		Animal::action(dx[move[rand_int]], dy[move[rand_int]]);
 	}
 	delete(move);
 }

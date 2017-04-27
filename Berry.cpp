@@ -9,5 +9,6 @@ Berry::Berry(int power, World * world, int x, int y)
 
 void Berry::collision(Organism * attacker)
 {
+	world->addComment(string(1, image), "poisoned", string(1, attacker->getImage()));
 	world->delOrganism(attacker);
 }

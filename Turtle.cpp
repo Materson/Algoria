@@ -14,6 +14,10 @@ void Turtle::action(int dx, int dy)
 	{
 		Animal::action();
 	}
+	else
+	{
+		world->addComment(string(1, image), "resting");
+	}
 }
 
 void Turtle::collision(Organism *attacker)
@@ -25,5 +29,9 @@ void Turtle::collision(Organism *attacker)
 	else if (attacker->getPower() >= 5)
 	{
 		Animal::collision(attacker);
+	}
+	else
+	{
+		world->addComment(string(1, image), "blocked", string(1, attacker->getImage()));
 	}
 }

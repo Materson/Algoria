@@ -33,7 +33,6 @@ void Animal::action(int move_dx, int move_dy)
 		{
 			world->collision(this, x + move_dx, y + move_dy);
 		}
-
 	}
 }
 

@@ -211,6 +211,7 @@ void World::fillWorld()
 				h_x = randInt(0, width);
 				h_y = randInt(0, height);
 				addOrganism('H', h_x, h_y);
+				addComment(string(1, 'H'), "created");
 				human = true;
 			}
 			organism[i] = ' ';
@@ -228,7 +229,7 @@ void World::fillWorld()
 				int rand_org = randInt(1, 100) % organism.size();
 				addOrganism(organism[rand_org], j, i);
 				if (organism[rand_org] != ' ')
-					addComment(string(1, organism[rand_org]), "was created");
+					addComment(string(1, organism[rand_org]), "created");
 			}
 			else
 			{
@@ -348,7 +349,7 @@ void World::addComment(string org1, string action, string org2)
 	comments[comment_i] = org1 + " " + action + " " + org2;
 	comment_i++;
 	comment_i = comment_i % (COMMENTS_AMOUNT+1);
-	comments[comment_i] = "**********************************";
+	comments[comment_i] = "*********************************";
 }
 
 void World::printComments()

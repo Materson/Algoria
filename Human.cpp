@@ -62,12 +62,18 @@ void Human::action(int dx, int dy)
 			break;
 		case ' ':
 			if (skill > 0)
-				move = false;
-			if (skill == 0)
+				fire();
+			else if (skill == 0)
 			{
+				world->addComment(string(1, image), "actived fire");
 				skill = SKILL_DURATION;
 				image = 'O';
 				fire();
+			}
+			else if (skill < 0)
+			{
+				world->addComment("Fire light up;", to_string((-1)*skill - 1) + " to ignite");
+				
 			}
 			break;
 		default:
@@ -83,6 +89,7 @@ void Human::collistion(Organism * attacker)
 	if (skill > 0)
 	{
 		world->delOrganism(attacker);
+		world->addComment("H", "burn", string(1, attacker->getImage()));
 	}
 	else
 	{
@@ -92,6 +99,7 @@ void Human::collistion(Organism * attacker)
 
 void Human::fire(int move_x, int move_y)
 {
+	world->addComment("H:", "BURN IT ALL!;", to_string(skill-1)+" left");
 	if (move_x != 0 || move_y != 0)
 	{
 		char place = world->checkPlace(x + move_x, y + move_y);
@@ -114,6 +122,7 @@ void Human::fire(int move_x, int move_y)
 	if (--skill == 0)
 	{
 		skill = -SKILL_DURATION-1;
+		world->addComment("H:", "Flame went out;", to_string((-1)*skill - 1) + " to ignite");
 		image = 'H';
 	}
 }

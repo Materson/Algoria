@@ -20,21 +20,15 @@ void Plant::action(int move_dx, int move_dy)
 		if (world->findFreeSpace(&new_x, &new_y, PLANT_RANGE))
 		{
 			world->addOrganism(image, new_x, new_y);
+			world->addComment(string(1, image), "spread");
 		}
 	}
 }
 
 void Plant::collision(Organism *attacker)
 {
-	//attack
-	if (attacker->getPower() < power)
-	{
-		world->delOrganism(attacker);
-	}
-	else
-	{
-		int a = x, b = y;
-		world->moveOrganism(attacker, a, b);
-		world->delOrganism(this);
-	}
+	int a = x, b = y;
+	world->moveOrganism(attacker, a, b);
+	world->addComment(string(1, attacker->getImage()), "ate", string(1, image));
+	world->delOrganism(this);
 }

@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	World *algoria= new World(10, 10);
+	World *algoria= new World(10, 5);
 	int zn;
 	while (algoria->humanAlive() || ((zn=getch()) != ESC))
 	{
