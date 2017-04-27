@@ -1,12 +1,13 @@
 #include<iostream>
 #include "World.cpp"
 #include<conio.h>
+#include"config.h"
 #define ESC 27
 using namespace std;
 
 int main()
 {
-	World *algoria= new World(10, 5);
+	World *algoria= new World(MAP_WIDTH, MAP_HEIGHT);
 	int zn;
 	while (algoria->humanAlive() || ((zn=getch()) != ESC))
 	{

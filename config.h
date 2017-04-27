@@ -1,9 +1,22 @@
 #pragma once
-#define ORGANISM_RATIO "tH"
-#define FILL_RATIO 1
-
-#define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
-#define MOVE_RANGE_Y -1, -1, 0, 1, 1, 1, 0, -1
+/*
+Possible Organism:
+H - Human
+a - antelope
+b - berry
+X - borscht
+f - fox
+g - grass
+G - guarana
+m - milk
+s - sheep
+t - turtle
+w - wolf
+*/
+#define MAP_WIDTH 10
+#define MAP_HEIGHT 5
+#define ORGANISM_RATIO "am"
+#define FILL_RATIO 5
 
 #define FIND_RANGE 1
 
@@ -33,3 +46,6 @@
 #define X_POWER 10
 
 #define COMMENTS_AMOUNT 10
+
+#define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
+#define MOVE_RANGE_Y -1, -1, 0, 1, 1, 1, 0, -1

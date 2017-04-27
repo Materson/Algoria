@@ -1,17 +1,5 @@
 #include"World.h"
-#include"Organism.h"
-#include"Human.h"
-#include"Wolf.h"
-#include"Sheep.h"
-#include"Fox.h"
-#include"Turtle.h"
-#include"Antelope.h"
-#include"Human.h"
-#include"Grass.h"
-#include"Milk.h"
-#include"Guarana.h"
-#include"Berry.h"
-#include"Borscht.h"
+#include"IncludeOrganisms.h"
 #include"config.h"
 #include<iostream>
 #include<cstdlib>
@@ -75,6 +63,7 @@ void World::nextTurn()
 void World::drawWorld()
 {
 	system("cls");
+	cout << "Mateusz Szymanowski, nr:165319" << endl;
 	for (int i = 0; i <= height * 2; i++)
 	{
 		for (int j = 0; j <= width * 2; j++)

@@ -11,6 +11,6 @@ Guarana::Guarana(int power, World * world, int x, int y)
 void Guarana::collision(Organism * attacker)
 {
 	attacker->setPower(attacker->getPower() + GU_STRENGTH);
-	world->addComment(string(1, attacker->getImage()), "ate", string(1, image)+" strength +"+to_string(GU_STRENGTH));
+	world->addComment(string(1, attacker->getImage()), "ate", string(1, image)+" strength +"+to_string(GU_STRENGTH)+" actual: "+to_string(attacker->getPower()));
 	Plant::collision(attacker);
 }

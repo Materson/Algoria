@@ -116,5 +116,8 @@
     <ClInclude Include="Borscht.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IncludeOrganisms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
