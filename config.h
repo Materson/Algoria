@@ -1,6 +1,6 @@
 #pragma once
-#define ORGANISM_RATIO "HwbX"
-#define FILL_RATIO 2
+#define ORGANISM_RATIO "Hw"
+#define FILL_RATIO 1
 
 #define MOVE_RANGE_X 0, 1, 1, 1, 0, -1, -1, -1
 #define MOVE_RANGE_Y -1, -1, 0, 1, 1, 1, 0, -1
@@ -31,3 +31,5 @@
 #define GU_STRENGTH 3
 #define B_POWER 99
 #define X_POWER 10
+
+#define COMMENTS_AMOUNT 4

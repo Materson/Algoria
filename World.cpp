@@ -28,6 +28,7 @@ World::World(int width, int height)
 	{
 		map[i] = new Organism*[height];
 	}
+	comment_i = 0;
 	human = false;
 	fillWorld();
 	drawWorld();
@@ -92,6 +93,7 @@ void World::drawWorld()
 		}
 		cout << endl;
 	}
+	printComments();
 }
 
 //Organism* World::randOrganism()
@@ -223,7 +225,10 @@ void World::fillWorld()
 				continue;
 			if (randInt(1, 100) <= FILL_RATIO*10)
 			{
-				addOrganism(organism[randInt(1, 100) % organism.size()], j, i);
+				int rand_org = randInt(1, 100) % organism.size();
+				addOrganism(organism[rand_org], j, i);
+				if (organism[rand_org] != ' ')
+					addComment(string(1, organism[rand_org]), "was created");
 			}
 			else
 			{
@@ -336,4 +341,21 @@ bool World::game()
 void World::endGame()
 {
 	play = false;
+}
+
+void World::addComment(string org1, string action, string org2)
+{
+	comments[comment_i] = org1 + " " + action + " " + org2;
+	comment_i++;
+	comment_i = comment_i % (COMMENTS_AMOUNT+1);
+	comments[comment_i] = "**********************************";
+}
+
+void World::printComments()
+{
+	for (int i = 0; i < COMMENTS_AMOUNT+1; i++)
+	{
+		if(comments[i] != "")
+			cout<<comments[i]<<endl;
+	}
 }

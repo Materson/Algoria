@@ -42,7 +42,6 @@ void Organism::setY(int y)
 
 char Organism::getImage()
 {
-
 	return image;
 }
 

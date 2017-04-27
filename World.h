@@ -1,4 +1,6 @@
 #pragma once
+#include"config.h"
+#include<string>
 class Organism;
 using namespace std;
 
@@ -8,6 +10,8 @@ private:
 	int height, width;
 	int orgNum = 0;
 	bool human, play;
+	string comments[COMMENTS_AMOUNT+1];
+	int comment_i;
 	Organism ***map;
 	Organism **order;
 
@@ -57,4 +61,8 @@ public:
 	bool game();
 
 	void endGame();
+
+	void addComment(string org1, string action="", string org2="");
+
+	void printComments();
 };
