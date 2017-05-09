@@ -15,7 +15,7 @@ w - wolf
 */
 #define MAP_WIDTH 10
 #define MAP_HEIGHT 5
-#define ORGANISM_RATIO "am"
+#define ORGANISM_RATIO "HabXfgGmstw"
 #define FILL_RATIO 5
 
 #define FIND_RANGE 1
